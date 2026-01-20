@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 
 /**
  * Mobile Navigation Menu Component
@@ -18,7 +18,7 @@ function MobileNav() {
       {/* Mobile Menu Button */}
       <button
         onClick={toggleMenu}
-        className="lg:hidden text-[#181112] dark:text-white hover:text-primary transition-colors z-50 relative"
+        className="lg:hidden text-white hover:text-primary transition-colors z-50 relative"
         aria-label="Toggle menu"
         aria-expanded={isOpen}
       >
@@ -37,24 +37,24 @@ function MobileNav() {
 
       {/* Mobile Menu Drawer */}
       <nav
-        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-background-light dark:bg-background-dark z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-background-dark z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 sm:p-6 border-b border-[#e5e1d5] dark:border-[#3d2a2d]">
+          <div className="flex items-center justify-between p-4 sm:p-6 border-b border-[#3d2a2d]">
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-primary text-2xl">
                 filter_vintage
               </span>
-              <h2 className="text-[#181112] dark:text-white text-lg font-bold font-serif">
+              <h2 className="text-white text-lg font-bold font-serif">
                 Menu
               </h2>
             </div>
             <button
               onClick={toggleMenu}
-              className="text-[#181112] dark:text-white hover:text-primary transition-colors"
+              className="text-white hover:text-primary transition-colors"
               aria-label="Close menu"
             >
               <span className="material-symbols-outlined text-2xl">close</span>
@@ -67,7 +67,7 @@ function MobileNav() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center px-6 py-3 text-[#181112] dark:text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider"
+                  className="flex items-center px-6 py-3 text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider"
                   onClick={toggleMenu}
                 >
                   <span className="material-symbols-outlined text-xl mr-3">
@@ -79,7 +79,7 @@ function MobileNav() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center px-6 py-3 text-[#181112] dark:text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider"
+                  className="flex items-center px-6 py-3 text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider"
                   onClick={toggleMenu}
                 >
                   <span className="material-symbols-outlined text-xl mr-3">
@@ -91,7 +91,7 @@ function MobileNav() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center px-6 py-3 text-[#181112] dark:text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider"
+                  className="flex items-center px-6 py-3 text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider"
                   onClick={toggleMenu}
                 >
                   <span className="material-symbols-outlined text-xl mr-3">
@@ -103,7 +103,7 @@ function MobileNav() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center px-6 py-3 text-[#181112] dark:text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider"
+                  className="flex items-center px-6 py-3 text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium uppercase tracking-wider"
                   onClick={toggleMenu}
                 >
                   <span className="material-symbols-outlined text-xl mr-3">
@@ -115,14 +115,14 @@ function MobileNav() {
             </ul>
 
             {/* Divider */}
-            <div className="my-6 border-t border-[#e5e1d5] dark:border-[#3d2a2d]" />
+            <div className="my-6 border-t border-[#3d2a2d]" />
 
             {/* Secondary Menu */}
             <ul className="space-y-1">
               <li>
                 <a
                   href="#"
-                  className="flex items-center px-6 py-3 text-[#181112] dark:text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm"
+                  className="flex items-center px-6 py-3 text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm"
                   onClick={toggleMenu}
                 >
                   <span className="material-symbols-outlined text-xl mr-3">
@@ -134,7 +134,7 @@ function MobileNav() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center px-6 py-3 text-[#181112] dark:text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm"
+                  className="flex items-center px-6 py-3 text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm"
                   onClick={toggleMenu}
                 >
                   <span className="material-symbols-outlined text-xl mr-3">
@@ -146,7 +146,7 @@ function MobileNav() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center px-6 py-3 text-[#181112] dark:text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm"
+                  className="flex items-center px-6 py-3 text-white hover:bg-primary/10 hover:text-primary transition-colors text-sm"
                   onClick={toggleMenu}
                 >
                   <span className="material-symbols-outlined text-xl mr-3">
@@ -159,9 +159,9 @@ function MobileNav() {
           </div>
 
           {/* Footer */}
-          <div className="p-6 border-t border-[#e5e1d5] dark:border-[#3d2a2d] space-y-4">
+          <div className="p-6 border-t border-[#3d2a2d] space-y-4">
             {/* Mobile Search */}
-            <div className="flex items-center bg-[#f4f0f1] dark:bg-[#3d2a2d] rounded-lg px-3 py-2">
+            <div className="flex items-center bg-[#3d2a2d] rounded-lg px-3 py-2">
               <span className="material-symbols-outlined text-gray-500 text-xl">
                 search
               </span>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import ScrollToTop from '../components/ScrollToTop';
@@ -154,7 +154,7 @@ function Checkout() {
   if (orderPlaced) {
     return (
       <>
-        <div className="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e1d5] dark:border-[#3d2a2d]">
+        <div className="sticky top-0 z-50 w-full bg-background-dark/95 backdrop-blur-sm border-b border-[#3d2a2d]">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-20 py-3 sm:py-4">
             <header className="flex items-center justify-between whitespace-nowrap">
               <div className="flex items-center flex-1">
@@ -239,7 +239,7 @@ function Checkout() {
   return (
     <>
       {/* Header - Same as Home */}
-      <div className="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e1d5] dark:border-[#3d2a2d]">
+      <div className="sticky top-0 z-50 w-full bg-background-dark/95 backdrop-blur-sm border-b border-[#3d2a2d]">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-20 py-3 sm:py-4">
           <header className="flex items-center justify-between whitespace-nowrap">
             {/* Brand - Left */}
@@ -251,16 +251,16 @@ function Checkout() {
 
             {/* Navigation - Center */}
             <nav className="hidden lg:flex items-center justify-center gap-10 flex-1">
-              <Link to="/sarees" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/sarees" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Sarees
               </Link>
-              <Link to="/lehengas" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/lehengas" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Lehengas
               </Link>
-              <Link to="/indo-western" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/indo-western" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Indo-Western
               </Link>
-              <Link to="/bridal-edit" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/bridal-edit" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Bridal Edit
               </Link>
             </nav>
@@ -269,7 +269,7 @@ function Checkout() {
             <div className="flex items-center justify-end gap-4 sm:gap-6 flex-1">
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden text-[#181112] dark:text-white cursor-pointer"
+                className="lg:hidden text-white cursor-pointer"
               >
                 <span className="material-symbols-outlined text-2xl">
                   {mobileMenuOpen ? 'close' : 'menu'}
@@ -282,10 +282,10 @@ function Checkout() {
               </div>
 
               <div className="hidden sm:flex items-center gap-4">
-                <Link to="/wishlist" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/wishlist" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">favorite</span>
                 </Link>
-                <Link to="/cart" className="relative text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/cart" className="relative text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">shopping_bag</span>
                   {getCartCount() > 0 && (
                     <span className="absolute -top-1 -right-1 bg-primary text-white text-[10px] size-4 flex items-center justify-center rounded-full">
@@ -293,7 +293,7 @@ function Checkout() {
                     </span>
                   )}
                 </Link>
-                <Link to="/profile" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/profile" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">person</span>
                 </Link>
               </div>
@@ -303,33 +303,33 @@ function Checkout() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-[#e5e1d5] dark:border-[#3d2a2d] bg-background-light dark:bg-background-dark">
+          <div className="lg:hidden border-t border-[#3d2a2d] bg-background-dark">
             <nav className="flex flex-col px-4 py-4">
               <Link 
                 to="/sarees" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Sarees
               </Link>
               <Link 
                 to="/lehengas" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Lehengas
               </Link>
               <Link 
                 to="/indo-western" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Indo-Western
               </Link>
               <Link 
                 to="/bridal-edit" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Bridal Edit
               </Link>

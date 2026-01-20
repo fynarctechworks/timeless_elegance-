@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import ScrollToTop from '../components/ScrollToTop';
@@ -59,7 +59,7 @@ function Cart() {
   return (
     <>
       {/* Header */}
-      <div className="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e1d5] dark:border-[#3d2a2d]">
+      <div className="sticky top-0 z-50 w-full bg-background-dark/95 backdrop-blur-sm border-b border-[#3d2a2d]">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-20 py-3 sm:py-4">
           <header className="flex items-center justify-between whitespace-nowrap">
             {/* Brand - Left */}
@@ -71,16 +71,16 @@ function Cart() {
 
             {/* Navigation - Center */}
             <nav className="hidden lg:flex items-center justify-center gap-10 flex-1">
-              <Link to="/sarees" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/sarees" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Sarees
               </Link>
-              <Link to="/lehengas" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/lehengas" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Lehengas
               </Link>
-              <Link to="/indo-western" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/indo-western" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Indo-Western
               </Link>
-              <Link to="/bridal-edit" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/bridal-edit" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Bridal Edit
               </Link>
             </nav>
@@ -88,7 +88,7 @@ function Cart() {
             {/* Icons - Right */}
             <div className="flex items-center justify-end gap-4 sm:gap-6 flex-1">
               <div className="hidden sm:flex gap-3 sm:gap-4">
-                <Link to="/wishlist" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/wishlist" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">favorite</span>
                 </Link>
                 <Link to="/cart" className="relative text-primary transition-colors cursor-pointer">
@@ -99,14 +99,14 @@ function Cart() {
                     </span>
                   )}
                 </Link>
-                <Link to="/profile" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/profile" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">person</span>
                 </Link>
               </div>
               {/* Hamburger Menu Button */}
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer"
+                className="lg:hidden text-white hover:text-primary transition-colors cursor-pointer"
                 aria-label="Toggle menu"
               >
                 <span className="material-symbols-outlined text-2xl">
@@ -119,38 +119,38 @@ function Cart() {
         
         {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-background-light/98 dark:bg-background-dark/98 backdrop-blur-md border-b border-[#e5e1d5] dark:border-[#3d2a2d] shadow-lg">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-background-dark/98 backdrop-blur-md border-b border-[#3d2a2d] shadow-lg">
             <nav className="flex flex-col px-4 sm:px-6 py-4 space-y-4">
               <Link 
                 to="/sarees" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Sarees
               </Link>
               <Link 
                 to="/lehengas" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Lehengas
               </Link>
               <Link 
                 to="/indo-western" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Indo-Western
               </Link>
               <Link 
                 to="/bridal-edit" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Bridal Edit
               </Link>
               <div className="flex gap-6 py-2 justify-start sm:hidden">
-                <Link to="/wishlist" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/wishlist" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">favorite</span>
                 </Link>
                 <Link to="/cart" className="relative text-primary transition-colors cursor-pointer">
@@ -161,7 +161,7 @@ function Cart() {
                     </span>
                   )}
                 </Link>
-                <Link to="/profile" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/profile" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">person</span>
                 </Link>
               </div>
@@ -170,18 +170,18 @@ function Cart() {
         )}
       </div>
 
-      <main className="w-full bg-[#faf8f6] dark:bg-background-dark min-h-screen">
+      <main className="w-full bg-background-dark min-h-screen">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-20 py-8 sm:py-12">
           {/* Page Header */}
           <div className="mb-8 sm:mb-10 text-center">
-            <h1 className="text-2xl sm:text-3xl font-light tracking-[0.2em] uppercase mb-2 text-[#181112] dark:text-white">My Shopping Bag</h1>
-            <p className="text-[10px] sm:text-xs text-[#896168] dark:text-white/40 uppercase tracking-widest">Luxury Ethnic Couture Curated For You</p>
+            <h1 className="text-2xl sm:text-3xl font-light tracking-[0.2em] uppercase mb-2 text-white">My Shopping Bag</h1>
+            <p className="text-[10px] sm:text-xs text-white/40 uppercase tracking-widest">Luxury Ethnic Couture Curated For You</p>
           </div>
 
           {cartItems.length === 0 ? (
             <div className="text-center py-16">
               <span className="material-symbols-outlined text-6xl text-[#896168]/20 mb-4">shopping_bag</span>
-              <h2 className="text-xl font-bold mb-4 text-[#181112] dark:text-white">Your cart is empty</h2>
+              <h2 className="text-xl font-bold mb-4 text-white">Your cart is empty</h2>
               <Link 
                 to="/" 
                 className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#c5a059] hover:gap-4 transition-all"
@@ -195,7 +195,7 @@ function Cart() {
               {/* Cart Items */}
               <div className="flex-1 space-y-4">
                 {cartItems.map((item) => (
-                  <div key={item.id} className="bg-white dark:bg-white/5 rounded-lg p-4 sm:p-6 shadow-sm">
+                  <div key={item.id} className="bg-white/5 rounded-lg p-4 sm:p-6 shadow-sm">
                     <div className="flex gap-4 sm:gap-6">
                       <div className="w-20 sm:w-24 lg:w-28 aspect-[3/4] overflow-hidden rounded-lg bg-neutral-100 flex-shrink-0">
                         <img 
@@ -207,8 +207,8 @@ function Cart() {
                       <div className="flex flex-col flex-1">
                         <div className="flex justify-between items-start gap-2 mb-3">
                           <div>
-                            <h3 className="text-sm sm:text-base font-bold uppercase tracking-tight text-[#181112] dark:text-white">{item.name}</h3>
-                            <p className="text-xs text-[#896168] dark:text-white/40 mt-1">{item.description}</p>
+                            <h3 className="text-sm sm:text-base font-bold uppercase tracking-tight text-white">{item.name}</h3>
+                            <p className="text-xs text-white/40 mt-1">{item.description}</p>
                           </div>
                           <button 
                             onClick={() => removeFromCart(item.id)}
@@ -223,17 +223,17 @@ function Cart() {
                             <label className="text-[10px] font-bold uppercase tracking-widest text-[#896168]/60 block">
                               Quantity
                             </label>
-                            <div className="flex items-center border border-[#e6dbdd] dark:border-white/20 rounded overflow-hidden">
+                            <div className="flex items-center border border-white/20 rounded overflow-hidden">
                               <button 
                                 onClick={() => updateQuantity(item.id, -1)}
-                                className="px-3 py-2 hover:bg-neutral-50 dark:hover:bg-white/5 cursor-pointer text-[#181112] dark:text-white"
+                                className="px-3 py-2 hover:bg-white/5 cursor-pointer text-white"
                               >
                                 -
                               </button>
-                              <span className="flex-1 text-center text-sm font-medium text-[#181112] dark:text-white px-4">{item.quantity}</span>
+                              <span className="flex-1 text-center text-sm font-medium text-white px-4">{item.quantity}</span>
                               <button 
                                 onClick={() => updateQuantity(item.id, 1)}
-                                className="px-3 py-2 hover:bg-neutral-50 dark:hover:bg-white/5 cursor-pointer text-[#181112] dark:text-white"
+                                className="px-3 py-2 hover:bg-white/5 cursor-pointer text-white"
                               >
                                 +
                               </button>
@@ -241,8 +241,8 @@ function Cart() {
                           </div>
                         </div>
                         
-                        <div className="mt-4 pt-4 border-t border-[#e6dbdd] dark:border-white/10">
-                          <p className="text-lg sm:text-xl font-bold text-[#5d0e1b] dark:text-[#c5a059]">
+                        <div className="mt-4 pt-4 border-t border-white/10">
+                          <p className="text-lg sm:text-xl font-bold text-[#c5a059]">
                             ₹{(item.price * item.quantity).toLocaleString('en-IN')}
                           </p>
                         </div>
@@ -264,22 +264,22 @@ function Cart() {
 
               {/* Order Summary */}
               <aside className="w-full lg:w-[400px]">
-                <div className="bg-white dark:bg-white/5 border border-[#e6dbdd] dark:border-white/10 p-6 sm:p-8 rounded-lg shadow-sm sticky top-28">
-                  <h2 className="text-base sm:text-lg font-bold uppercase tracking-widest mb-6 border-b border-[#e6dbdd] dark:border-white/10 pb-4 text-[#181112] dark:text-white">
+                <div className="bg-white/5 border border-white/10 p-6 sm:p-8 rounded-lg shadow-sm sticky top-28">
+                  <h2 className="text-base sm:text-lg font-bold uppercase tracking-widest mb-6 border-b border-white/10 pb-4 text-white">
                     Order Summary
                   </h2>
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between text-sm">
-                      <span className="text-[#896168] dark:text-white/60">Subtotal ({cartItems.length} items)</span>
-                      <span className="font-bold text-[#181112] dark:text-white">₹{subtotal.toLocaleString('en-IN')}</span>
+                      <span className="text-white/60">Subtotal ({cartItems.length} items)</span>
+                      <span className="font-bold text-white">₹{subtotal.toLocaleString('en-IN')}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-[#896168] dark:text-white/60">Estimated Shipping</span>
+                      <span className="text-white/60">Estimated Shipping</span>
                       <span className="text-green-600 font-bold uppercase text-[10px] tracking-widest">Free</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-[#896168] dark:text-white/60">Tax (GST)</span>
-                      <span className="font-bold text-[#181112] dark:text-white">₹{tax.toLocaleString('en-IN')}</span>
+                      <span className="text-white/60">Tax (GST)</span>
+                      <span className="font-bold text-white">₹{tax.toLocaleString('en-IN')}</span>
                     </div>
                   </div>
                   
@@ -289,22 +289,22 @@ function Cart() {
                     </label>
                     <div className="flex gap-2">
                       <input 
-                        className="flex-1 bg-white dark:bg-white/5 border border-[#e6dbdd] dark:border-white/20 focus:ring-[#c5a059] focus:border-[#c5a059] text-sm uppercase tracking-widest rounded px-3 py-2.5 text-[#181112] dark:text-white placeholder:text-[#896168]/50" 
+                        className="flex-1 bg-white/5 border border-white/20 focus:ring-[#c5a059] focus:border-[#c5a059] text-sm uppercase tracking-widest rounded px-3 py-2.5 text-white placeholder:text-[#896168]/50" 
                         placeholder="PROMO CODE" 
                         type="text"
                         value={promoCode}
                         onChange={(e) => setPromoCode(e.target.value)}
                       />
-                      <button className="bg-[#181112] dark:bg-[#c5a059] text-white text-[10px] font-bold uppercase px-5 rounded tracking-widest hover:bg-black dark:hover:bg-[#b8944d] transition-colors cursor-pointer">
+                      <button className="bg-[#c5a059] text-white text-[10px] font-bold uppercase px-5 rounded tracking-widest hover:bg-[#b8944d] transition-colors cursor-pointer">
                         Apply
                       </button>
                     </div>
                   </div>
                   
-                  <div className="border-t border-[#e6dbdd] dark:border-white/10 pt-6 mb-6">
+                  <div className="border-t border-white/10 pt-6 mb-6">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm font-bold uppercase tracking-widest text-[#181112] dark:text-white">Grand Total</span>
-                      <span className="text-2xl font-extrabold text-[#5d0e1b] dark:text-[#c5a059]">
+                      <span className="text-sm font-bold uppercase tracking-widest text-white">Grand Total</span>
+                      <span className="text-2xl font-extrabold text-[#c5a059]">
                         ₹{total.toLocaleString('en-IN')}
                       </span>
                     </div>
@@ -312,12 +312,12 @@ function Cart() {
                   
                   <Link 
                     to="/checkout"
-                    className="w-full bg-[#5d0e1b] hover:bg-black dark:bg-[#c5a059] dark:hover:bg-[#b8944d] text-white py-4 rounded font-bold uppercase tracking-[0.2em] text-sm transition-all shadow-lg mb-4 cursor-pointer block text-center"
+                    className="w-full bg-[#c5a059] hover:bg-[#b8944d] text-white py-4 rounded font-bold uppercase tracking-[0.2em] text-sm transition-all shadow-lg mb-4 cursor-pointer block text-center"
                   >
                     Proceed to Checkout
                   </Link>
                   
-                  <div className="flex items-center justify-center gap-2 text-[#896168] dark:text-white/40">
+                  <div className="flex items-center justify-center gap-2 text-white/40">
                     <span className="material-symbols-outlined text-sm">lock</span>
                     <span className="text-[10px] font-bold uppercase tracking-widest">Secure Checkout Powered By Aura</span>
                   </div>
@@ -329,11 +329,11 @@ function Cart() {
           {/* Complete The Look */}
           <section className="mt-16 sm:mt-20">
             <div className="mb-8">
-              <h2 className="text-xl sm:text-2xl font-light uppercase tracking-[0.2em] text-[#181112] dark:text-white">Complete The Look</h2>
+              <h2 className="text-xl sm:text-2xl font-light uppercase tracking-[0.2em] text-white">Complete The Look</h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
               {recommendedProducts.map((product) => (
-                <div key={product.id} className="group cursor-pointer bg-white dark:bg-white/5 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div key={product.id} className="group cursor-pointer bg-white/5 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                   <div className="relative aspect-square overflow-hidden bg-neutral-100">
                     <img 
                       alt={product.name} 
@@ -342,8 +342,8 @@ function Cart() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="text-[11px] sm:text-xs font-bold uppercase tracking-tight text-[#181112] dark:text-white mb-1">{product.name}</h3>
-                    <p className="text-[10px] sm:text-xs text-[#896168] dark:text-white/40 mb-2">{product.description}</p>
+                    <h3 className="text-[11px] sm:text-xs font-bold uppercase tracking-tight text-white mb-1">{product.name}</h3>
+                    <p className="text-[10px] sm:text-xs text-white/40 mb-2">{product.description}</p>
                     <p className="font-bold text-[#c5a059] text-sm">₹{product.price.toLocaleString('en-IN')}</p>
                   </div>
                 </div>

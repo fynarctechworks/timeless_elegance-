@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+﻿import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import ScrollToTop from '../components/ScrollToTop';
@@ -273,7 +273,7 @@ function Home() {
   return (
     <>
       {/* Header */}
-      <div className="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e1d5] dark:border-[#3d2a2d]">
+      <div className="sticky top-0 z-50 w-full bg-background-dark/95 backdrop-blur-sm border-b border-[#3d2a2d]">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-20 py-3 sm:py-4">
           <header className="flex items-center justify-between whitespace-nowrap">
             {/* Brand - Left */}
@@ -285,16 +285,16 @@ function Home() {
 
             {/* Navigation - Center */}
             <nav className="hidden lg:flex items-center justify-center gap-10 flex-1">
-              <Link to="/sarees" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/sarees" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Sarees
               </Link>
-              <Link to="/lehengas" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/lehengas" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Lehengas
               </Link>
-              <Link to="/indo-western" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/indo-western" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Indo-Western
               </Link>
-              <Link to="/bridal-edit" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/bridal-edit" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Bridal Edit
               </Link>
             </nav>
@@ -302,10 +302,10 @@ function Home() {
             {/* Icons - Right */}
             <div className="flex items-center justify-end gap-4 sm:gap-6 flex-1">
               <div className="hidden sm:flex gap-3 sm:gap-4">
-                <Link to="/wishlist" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/wishlist" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">favorite</span>
                 </Link>
-                <Link to="/cart" className="relative text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/cart" className="relative text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">shopping_bag</span>
                   {getCartCount() > 0 && (
                     <span className="absolute -top-1 -right-1 bg-primary text-white text-[10px] size-4 flex items-center justify-center rounded-full">
@@ -313,14 +313,14 @@ function Home() {
                     </span>
                   )}
                 </Link>
-                <Link to="/profile" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/profile" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">person</span>
                 </Link>
               </div>
               {/* Hamburger Menu Button */}
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer"
+                className="lg:hidden text-white hover:text-primary transition-colors cursor-pointer"
                 aria-label="Toggle menu"
               >
                 <span className="material-symbols-outlined text-2xl">
@@ -333,41 +333,41 @@ function Home() {
         
         {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-background-light/98 dark:bg-background-dark/98 backdrop-blur-md border-b border-[#e5e1d5] dark:border-[#3d2a2d] shadow-lg">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-background-dark/98 backdrop-blur-md border-b border-[#3d2a2d] shadow-lg">
             <nav className="flex flex-col px-4 sm:px-6 py-4 space-y-4">
               <Link 
                 to="/sarees" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Sarees
               </Link>
               <Link 
                 to="/lehengas" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Lehengas
               </Link>
               <Link 
                 to="/indo-western" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Indo-Western
               </Link>
               <Link 
                 to="/bridal-edit" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Bridal Edit
               </Link>
               <div className="flex gap-6 py-2 justify-start sm:hidden">
-                <Link to="/wishlist" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/wishlist" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">favorite</span>
                 </Link>
-                <Link to="/cart" className="relative text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/cart" className="relative text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">shopping_bag</span>
                   {getCartCount() > 0 && (
                     <span className="absolute -top-1 -right-1 bg-primary text-white text-[10px] size-4 flex items-center justify-center rounded-full">
@@ -375,7 +375,7 @@ function Home() {
                     </span>
                   )}
                 </Link>
-                <Link to="/profile" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/profile" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">person</span>
                 </Link>
               </div>
@@ -424,12 +424,12 @@ function Home() {
         </div>
 
         {/* New Arrivals Section */}
-        <section id="new-arrivals" className="relative bg-background-light dark:bg-background-dark silk-texture py-12 sm:py-16 lg:py-24 overflow-hidden border-b border-[#e5e1d5] dark:border-[#3d2a2d]">
+        <section id="new-arrivals" className="relative bg-background-dark silk-texture py-12 sm:py-16 lg:py-24 overflow-hidden border-b border-[#3d2a2d]">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-20">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 sm:mb-12 lg:mb-16 gap-4 sm:gap-6">
               <div className="space-y-2 sm:space-y-3">
                 <span className="text-gold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[10px] sm:text-xs font-bold">Just In</span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold dark:text-white">New Arrivals</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">New Arrivals</h2>
                 <div className="w-16 sm:w-20 h-0.5" style={{backgroundColor: '#c5a059'}}></div>
               </div>
               <div className="flex items-center gap-4 sm:gap-8">
@@ -453,7 +453,7 @@ function Home() {
             </div>
             <div ref={carouselRef} className="carousel-container flex gap-4 sm:gap-6 lg:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 sm:pb-12">
               {allProducts.slice(0, visibleProducts).map((product) => (
-                <div key={product.id} className="min-w-[260px] sm:min-w-[300px] lg:min-w-[340px] snap-start group bg-white dark:bg-[#2d161a] border border-[#e5e1d5] dark:border-[#3d2a2d] shadow-sm">
+                <div key={product.id} className="min-w-[260px] sm:min-w-[300px] lg:min-w-[340px] snap-start group bg-[#2d161a] border border-[#3d2a2d] shadow-sm">
                   <div className="relative aspect-[3/4] overflow-hidden">
                     <div 
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" 
@@ -465,7 +465,7 @@ function Home() {
                       </div>
                     )}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 translate-y-0 sm:translate-y-full sm:group-hover:translate-y-0 transition-transform duration-300 bg-white/90 dark:bg-[#181112]/90 backdrop-blur-sm">
+                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 translate-y-0 sm:translate-y-full sm:group-hover:translate-y-0 transition-transform duration-300 bg-[#181112]/90 backdrop-blur-sm">
                       <Link to={`/product/${product.id}`} state={{ product: product }}>
                         <button className="w-full bg-primary text-white py-2.5 sm:py-3 text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-primary/90 transition-colors cursor-pointer">
                           Quick Buy
@@ -474,7 +474,7 @@ function Home() {
                     </div>
                   </div>
                   <div className="p-4 sm:p-6 text-center">
-                    <h4 className="font-serif text-base sm:text-lg font-bold mb-1 sm:mb-2 dark:text-white">{product.name}</h4>
+                    <h4 className="font-serif text-base sm:text-lg font-bold mb-1 sm:mb-2 text-white">{product.name}</h4>
                     <p className="text-gold font-bold text-sm sm:text-base">{product.price}</p>
                   </div>
                 </div>

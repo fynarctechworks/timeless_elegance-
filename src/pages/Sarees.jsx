@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
 import logo from '../assets/Logo.png';
@@ -86,7 +86,7 @@ function Sarees() {
   return (
     <>
       {/* Header - Same as Home */}
-      <div className="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e1d5] dark:border-[#3d2a2d]">
+      <div className="sticky top-0 z-50 w-full bg-background-dark/95 backdrop-blur-sm border-b border-[#3d2a2d]">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-20 py-3 sm:py-4">
           <header className="flex items-center justify-between whitespace-nowrap">
             {/* Brand - Left */}
@@ -98,16 +98,16 @@ function Sarees() {
 
             {/* Navigation - Center */}
             <nav className="hidden lg:flex items-center justify-center gap-10 flex-1">
-              <Link to="/sarees" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest text-primary border-b-2 border-primary pb-1 transition-colors">
+              <Link to="/sarees" className="text-white text-sm font-medium uppercase tracking-widest text-primary border-b-2 border-primary pb-1 transition-colors">
                 Sarees
               </Link>
-              <Link to="/lehengas" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/lehengas" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Lehengas
               </Link>
-              <Link to="/indo-western" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/indo-western" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Indo-Western
               </Link>
-              <Link to="/bridal-edit" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
+              <Link to="/bridal-edit" className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Bridal Edit
               </Link>
             </nav>
@@ -115,20 +115,20 @@ function Sarees() {
             {/* Icons - Right */}
             <div className="flex items-center justify-end gap-4 sm:gap-6 flex-1">
               <div className="hidden sm:flex gap-3 sm:gap-4">
-                <Link to="/wishlist" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/wishlist" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">favorite</span>
                 </Link>
-                <Link to="/cart" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/cart" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">shopping_bag</span>
                 </Link>
-                <Link to="/profile" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/profile" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">person</span>
                 </Link>
               </div>
               {/* Hamburger Menu Button */}
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer"
+                className="lg:hidden text-white hover:text-primary transition-colors cursor-pointer"
                 aria-label="Toggle menu"
               >
                 <span className="material-symbols-outlined text-2xl">{mobileMenuOpen ? 'close' : 'menu'}</span>
@@ -139,7 +139,7 @@ function Sarees() {
 
         {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-background-light/98 dark:bg-background-dark/98 backdrop-blur-md border-b border-[#e5e1d5] dark:border-[#3d2a2d] shadow-lg">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-background-dark/98 backdrop-blur-md border-b border-[#3d2a2d] shadow-lg">
             <nav className="flex flex-col px-4 sm:px-6 py-4 space-y-4">
               <Link 
                 to="/sarees" 
@@ -151,32 +151,32 @@ function Sarees() {
               <Link 
                 to="/lehengas" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Lehengas
               </Link>
               <Link 
                 to="/indo-western" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Indo-Western
               </Link>
               <Link 
                 to="/bridal-edit" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Bridal Edit
               </Link>
               <div className="flex gap-6 py-2 justify-start sm:hidden">
-                <Link to="/wishlist" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/wishlist" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">favorite</span>
                 </Link>
-                <Link to="/cart" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/cart" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">shopping_bag</span>
                 </Link>
-                <Link to="/profile" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/profile" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">person</span>
                 </Link>
               </div>

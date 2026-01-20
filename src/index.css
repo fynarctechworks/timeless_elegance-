@@ -22,6 +22,8 @@ body {
   overflow-x: hidden;
   width: 100vw;
   max-width: 100vw;
+  background-color: #221013;
+  color: #ffffff;
 }
 
 #root {
@@ -30,6 +32,7 @@ body {
   width: 100vw;
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: #221013;
 }
 
 /* Smooth scroll for mobile */
@@ -40,13 +43,31 @@ html {
   overflow-x: hidden;
   width: 100vw;
   max-width: 100vw;
+  background-color: #221013;
+  color-scheme: dark;
 }
 
 /* Prevent text size adjustment on mobile */
-* {
+*,
+*::before,
+*::after {
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
+}
+
+/* Force dark mode colors globally */
+* {
+  color-scheme: dark !important;
+}
+
+/* Override any light theme colors */
+.bg-background-light {
+  background-color: #221013 !important;
+}
+
+.text-\[\#181112\] {
+  color: #ffffff !important;
 }
 
 /* Utility Classes */
@@ -55,7 +76,7 @@ html {
 }
 
 .bg-ivory {
-  background-color: #fdfcf0;
+  background-color: #221013;
 }
 
 .text-maroon {

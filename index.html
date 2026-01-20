@@ -1,14 +1,29 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark" style="color-scheme: dark;">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark only">
     <title>Timeless Elegance | Luxury Indian Boutique</title>
+    <script>
+      // Force dark mode immediately
+      (function() {
+        document.documentElement.classList.add('dark');
+        document.documentElement.style.colorScheme = 'dark';
+        document.documentElement.setAttribute('data-theme', 'dark');
+      })();
+    </script>
+    <style>
+      html, body {
+        background-color: #221013 !important;
+        color: #ffffff !important;
+      }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   </head>
-  <body>
+  <body class="dark:bg-background-dark" style="background-color: #221013 !important;">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

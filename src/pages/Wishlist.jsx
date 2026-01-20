@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
 import logo from '../assets/Logo.png';
@@ -39,7 +39,7 @@ function Wishlist() {
   return (
     <>
       {/* Header */}
-      <div className="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e1d5] dark:border-[#3d2a2d]">
+      <div className="sticky top-0 z-50 w-full bg-background-dark/95 backdrop-blur-sm border-b border-[#3d2a2d]">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-20 py-3 sm:py-4">
           <header className="flex items-center justify-between whitespace-nowrap">
             {/* Brand - Left */}
@@ -51,16 +51,16 @@ function Wishlist() {
 
             {/* Navigation - Center */}
             <nav className="hidden lg:flex items-center justify-center gap-10 flex-1">
-              <Link to="/sarees" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors">
+              <Link to="/sarees" className="text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors">
                 Sarees
               </Link>
-              <Link to="/lehengas" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors">
+              <Link to="/lehengas" className="text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors">
                 Lehengas
               </Link>
-              <Link to="/indo-western" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors">
+              <Link to="/indo-western" className="text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors">
                 Indo-Western
               </Link>
-              <Link to="/bridal-edit" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors">
+              <Link to="/bridal-edit" className="text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors">
                 Bridal Edit
               </Link>
             </nav>
@@ -76,17 +76,17 @@ function Wishlist() {
                     </span>
                   )}
                 </Link>
-                <Link to="/cart" className="text-[#181112] dark:text-white hover:text-[#c5a059] transition-colors cursor-pointer">
+                <Link to="/cart" className="text-white hover:text-[#c5a059] transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">shopping_bag</span>
                 </Link>
-                <Link to="/profile" className="text-[#181112] dark:text-white hover:text-[#c5a059] transition-colors cursor-pointer">
+                <Link to="/profile" className="text-white hover:text-[#c5a059] transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">person</span>
                 </Link>
               </div>
               {/* Hamburger Menu Button */}
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden text-[#181112] dark:text-white hover:text-[#c5a059] transition-colors cursor-pointer"
+                className="lg:hidden text-white hover:text-[#c5a059] transition-colors cursor-pointer"
                 aria-label="Toggle menu"
               >
                 <span className="material-symbols-outlined text-2xl">
@@ -99,33 +99,33 @@ function Wishlist() {
         
         {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-background-light/98 dark:bg-background-dark/98 backdrop-blur-md border-b border-[#e5e1d5] dark:border-[#3d2a2d] shadow-lg">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-background-dark/98 backdrop-blur-md border-b border-[#3d2a2d] shadow-lg">
             <nav className="flex flex-col px-4 sm:px-6 py-4 space-y-4">
               <Link 
                 to="/sarees" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Sarees
               </Link>
               <Link 
                 to="/lehengas" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Lehengas
               </Link>
               <Link 
                 to="/indo-western" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Indo-Western
               </Link>
               <Link 
                 to="/bridal-edit" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-white text-sm font-medium uppercase tracking-widest hover:text-[#c5a059] transition-colors py-2 border-b border-[#3d2a2d]"
               >
                 Bridal Edit
               </Link>
@@ -138,10 +138,10 @@ function Wishlist() {
                     </span>
                   )}
                 </Link>
-                <Link to="/cart" className="text-[#181112] dark:text-white hover:text-[#c5a059] transition-colors cursor-pointer">
+                <Link to="/cart" className="text-white hover:text-[#c5a059] transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">shopping_bag</span>
                 </Link>
-                <Link to="/profile" className="text-[#181112] dark:text-white hover:text-[#c5a059] transition-colors cursor-pointer">
+                <Link to="/profile" className="text-white hover:text-[#c5a059] transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">person</span>
                 </Link>
               </div>
@@ -150,12 +150,12 @@ function Wishlist() {
         )}
       </div>
 
-      <main className="w-full bg-[#faf8f6] dark:bg-background-dark min-h-screen">
+      <main className="w-full bg-background-dark min-h-screen">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-20 py-8 sm:py-12">
           {/* Page Heading */}
           <div className="mb-8 sm:mb-10 text-center">
-            <h1 className="text-2xl sm:text-3xl font-light tracking-[0.2em] uppercase mb-2 text-[#181112] dark:text-white">My Wishlist</h1>
-            <p className="text-[10px] sm:text-xs text-[#896168] dark:text-white/40 uppercase tracking-widest">Luxury Ethnic Couture Curated For You</p>
+            <h1 className="text-2xl sm:text-3xl font-light tracking-[0.2em] uppercase mb-2 text-white">My Wishlist</h1>
+            <p className="text-[10px] sm:text-xs text-white/40 uppercase tracking-widest">Luxury Ethnic Couture Curated For You</p>
           </div>
 
           {/* Filter Chips */}
@@ -167,7 +167,7 @@ function Wishlist() {
                 className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
                   activeFilter === filter.id
                     ? 'border border-[#c5a059] bg-[#c5a059]/10 text-[#c5a059]'
-                    : 'border border-[#e6dbdd] dark:border-white/10 hover:border-[#c5a059] text-[#896168] dark:text-gray-300'
+                    : 'border border-white/10 hover:border-[#c5a059] text-gray-300'
                 }`}
               >
                 {filter.label}
@@ -179,7 +179,7 @@ function Wishlist() {
           {filteredItems.length === 0 ? (
             <div className="text-center py-16">
               <span className="material-symbols-outlined text-6xl text-[#896168]/20 mb-4">favorite_border</span>
-              <h2 className="text-xl font-bold mb-4 text-[#181112] dark:text-white">Your wishlist is empty</h2>
+              <h2 className="text-xl font-bold mb-4 text-white">Your wishlist is empty</h2>
               <Link 
                 to="/" 
                 className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#c5a059] hover:gap-4 transition-all"
@@ -206,10 +206,10 @@ function Wishlist() {
                     </button>
                   </div>
                   <div className="flex flex-col gap-1 px-1">
-                    <h3 className="text-sm sm:text-base font-medium text-[#181112] dark:text-white">{item.name}</h3>
+                    <h3 className="text-sm sm:text-base font-medium text-white">{item.name}</h3>
                     <div className="flex justify-between items-center">
                       <p className="text-[#c5a059] font-bold">₹{item.price.toLocaleString('en-IN')}</p>
-                      <span className="text-[10px] uppercase tracking-widest text-[#896168] dark:text-gray-400">
+                      <span className="text-[10px] uppercase tracking-widest text-gray-400">
                         {item.stock}
                       </span>
                     </div>
