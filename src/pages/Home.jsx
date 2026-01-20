@@ -417,17 +417,17 @@ function Home() {
                 <div className="flex gap-3 sm:gap-4">
                   <button 
                     onClick={scrollLeft}
-                    className="size-10 sm:size-12 rounded-full border-2 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-white transition-all duration-300 cursor-pointer"
+                    className="size-10 sm:size-12 rounded-full border-2 flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-[#221013] group"
                     style={{borderColor: '#c5a059', color: '#c5a059'}}
                   >
-                    <span className="material-symbols-outlined text-xl sm:text-2xl">chevron_left</span>
+                    <span className="material-symbols-outlined text-xl sm:text-2xl group-hover:text-[#fdfcf0]">chevron_left</span>
                   </button>
                   <button 
                     onClick={scrollRight}
-                    className="size-10 sm:size-12 rounded-full border-2 flex items-center justify-center hover:bg-gold hover:border-gold hover:text-white transition-all duration-300 cursor-pointer"
+                    className="size-10 sm:size-12 rounded-full border-2 flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-[#221013] group"
                     style={{borderColor: '#c5a059', color: '#c5a059'}}
                   >
-                    <span className="material-symbols-outlined text-xl sm:text-2xl">chevron_right</span>
+                    <span className="material-symbols-outlined text-xl sm:text-2xl group-hover:text-[#fdfcf0]">chevron_right</span>
                   </button>
                 </div>
               </div>
