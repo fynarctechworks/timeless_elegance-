@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  
+  --color-background-light: #fdfcf0;
+  --color-background-dark: #221013;
+  --color-primary: #8B1538;
+  --color-gold: #c5a059;
+}
+
+/* Mobile-First Base Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100vw;
+  max-width: 100vw;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Smooth scroll for mobile */
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100vw;
+  max-width: 100vw;
+}
+
+/* Prevent text size adjustment on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+/* Utility Classes */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.bg-ivory {
+  background-color: #fdfcf0;
+}
+
+.text-maroon {
+  color: #d41132;
+}
+
+/* Mobile-First Carousel - Optimized for touch */
+.carousel-container {
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile-Optimized Textures */
+.silk-texture {
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+  background-blend-mode: soft-light;
+  background-size: 400px 400px; /* Smaller on mobile */
+}
+
+@media (min-width: 768px) {
+  .silk-texture {
+    background-size: 600px 600px;
+  }
+}
+
+.floral-pattern {
+  background-image: url("https://www.transparenttextures.com/patterns/shattered-island.png");
+  background-blend-mode: overlay;
+  opacity: 0.15;
+  background-size: 300px 300px; /* Smaller on mobile */
+}
+
+@media (min-width: 768px) {
+  .floral-pattern {
+    background-size: 500px 500px;
+  }
+}
+
+.video-overlay {
+  background: linear-gradient(to bottom, rgba(34, 16, 19, 0.4), rgba(197, 160, 89, 0.15), rgba(34, 16, 19, 0.6));
+}
+
+/* Mobile-First Touch Optimizations */
+button, a {
+  touch-action: manipulation; /* Prevents double-tap zoom */
+}
+
+/* Smooth transitions for mobile */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Mobile-specific image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
