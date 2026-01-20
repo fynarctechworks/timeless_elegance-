@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
- import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import ScrollToTop from '../components/ScrollToTop';
 import logo from '../assets/Logo.png';
 
 function ProductDetails() {
   const location = useLocation();
+  const navigate = useNavigate();
   const product = location.state?.product;
+  const { addToCart, getCartCount } = useCart();
   
   // Scroll to top when component loads
   useEffect(() => {
@@ -27,6 +30,27 @@ function ProductDetails() {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showAddedToast, setShowAddedToast] = useState(false);
+
+  const handleAddToCart = () => {
+    // Parse the price to a number (remove ₹ and commas)
+    const priceNumber = parseFloat(productPrice.replace('₹', '').replace(/,/g, ''));
+    
+    const cartItem = {
+      id: `${productName}-${Date.now()}`, // Generate unique ID
+      name: productName,
+      description: 'Authentic Hand-woven Mulberry Silk',
+      price: priceNumber,
+      quantity: quantity,
+      image: mainImage
+    };
+    
+    addToCart(cartItem);
+    
+    // Show toast notification
+    setShowAddedToast(true);
+    setTimeout(() => setShowAddedToast(false), 3000);
+  };
 
   // Use the main product image for all thumbnails (can be customized later)
   const productImages = [
@@ -94,8 +118,13 @@ function ProductDetails() {
                 <Link to="/wishlist" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">favorite</span>
                 </Link>
-                <Link to="/cart" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/cart" className="relative text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">shopping_bag</span>
+                  {getCartCount() > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-primary text-white text-[10px] size-4 flex items-center justify-center rounded-full">
+                      {getCartCount()}
+                    </span>
+                  )}
                 </Link>
                 <Link to="/profile" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">person</span>
@@ -222,7 +251,10 @@ function ProductDetails() {
                 {/* Actions */}
                 <div className="flex flex-col gap-4 mb-10">
                   <div className="flex gap-4">
-                    <button className="flex-1 bg-primary text-white font-bold py-4 rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <button 
+                      onClick={handleAddToCart}
+                      className="flex-1 bg-primary text-white font-bold py-4 rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    >
                       <span className="material-symbols-outlined">shopping_bag</span>
                       ADD TO BAG
                     </button>
@@ -375,6 +407,23 @@ function ProductDetails() {
             </div>
           </div>
         </footer>
+
+        {/* Toast Notification */}
+        {showAddedToast && (
+          <div className="fixed bottom-6 right-6 z-50 bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl flex items-center gap-3 animate-slide-up">
+            <span className="material-symbols-outlined">check_circle</span>
+            <div>
+              <p className="font-bold">Added to cart!</p>
+              <p className="text-sm opacity-90">{quantity} item(s) added</p>
+            </div>
+            <Link 
+              to="/cart"
+              className="ml-4 underline hover:no-underline text-sm font-semibold"
+            >
+              View Cart
+            </Link>
+          </div>
+        )}
       </main>
     </>
   );

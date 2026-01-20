@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import ScrollToTop from '../components/ScrollToTop';
 
 // Import logo
@@ -21,6 +22,8 @@ import champagneGoldAnarkali from '../assets/Champagne Gold Anarkali.jpg';
 import burgundyChanderi from '../assets/Burgundy Chanderi Silk.jpg';
 
 function Home() {
+  const { getCartCount } = useCart();
+  
   // State for managing visible products in New Arrivals
   const [visibleProducts, setVisibleProducts] = useState(10);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -302,8 +305,13 @@ function Home() {
                 <Link to="/wishlist" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">favorite</span>
                 </Link>
-                <Link to="/cart" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/cart" className="relative text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">shopping_bag</span>
+                  {getCartCount() > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-primary text-white text-[10px] size-4 flex items-center justify-center rounded-full">
+                      {getCartCount()}
+                    </span>
+                  )}
                 </Link>
                 <Link to="/profile" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">person</span>
@@ -359,8 +367,13 @@ function Home() {
                 <Link to="/wishlist" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">favorite</span>
                 </Link>
-                <Link to="/cart" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                <Link to="/cart" className="relative text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">shopping_bag</span>
+                  {getCartCount() > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-primary text-white text-[10px] size-4 flex items-center justify-center rounded-full">
+                      {getCartCount()}
+                    </span>
+                  )}
                 </Link>
                 <Link to="/profile" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">person</span>

@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { CartProvider } from './context/CartContext'
 import Home from './pages/Home'
 import ProductDetails from './pages/ProductDetails'
 import AllProducts from './pages/AllProducts'
@@ -12,26 +13,30 @@ import BridalEdit from './pages/BridalEdit'
 import Cart from './pages/Cart'
 import Wishlist from './pages/Wishlist'
 import Profile from './pages/Profile'
+import Checkout from './pages/Checkout'
 import './App.css'
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-        <Route path="/all-products" element={<AllProducts />} />
-        <Route path="/sarees" element={<Sarees />} />
-        <Route path="/lehengas" element={<Lehengas />} />
-        <Route path="/indo-western" element={<IndoWestern />} />
-        <Route path="/bridal-edit" element={<BridalEdit />} />
-        <Route path="/banarasi-silks" element={<BanarasiSilks />} />
-        <Route path="/bridal-lehengas" element={<BridalLehengas />} />
-        <Route path="/heritage-weaves" element={<HeritageWeaves />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
+      <CartProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/all-products" element={<AllProducts />} />
+          <Route path="/sarees" element={<Sarees />} />
+          <Route path="/lehengas" element={<Lehengas />} />
+          <Route path="/indo-western" element={<IndoWestern />} />
+          <Route path="/bridal-edit" element={<BridalEdit />} />
+          <Route path="/banarasi-silks" element={<BanarasiSilks />} />
+          <Route path="/bridal-lehengas" element={<BridalLehengas />} />
+          <Route path="/heritage-weaves" element={<HeritageWeaves />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </CartProvider>
     </Router>
   )
 }

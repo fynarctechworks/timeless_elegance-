@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import ScrollToTop from '../components/ScrollToTop';
 import logo from '../assets/Logo.png';
 
@@ -13,7 +14,7 @@ import mauveVelvetBridal from '../assets/Mauve Velvet Bridal Set.jpg';
 
 function Cart() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
+  const { cartItems, removeFromCart, updateQuantity, getCartCount } = useCart();
   const [promoCode, setPromoCode] = useState('');
 
   const recommendedProducts = [
@@ -47,19 +48,8 @@ function Cart() {
     }
   ];
 
-  const updateQuantity = (id, delta) => {
-    setCartItems(items =>
-      items.map(item =>
-        item.id === id
-          ? { ...item, quantity: Math.max(1, item.quantity + delta) }
-          : item
-      )
-    );
-  };
-
-  const removeItem = (id) => {
-    setCartItems(items => items.filter(item => item.id !== id));
-  };
+  // Remove local updateQuantity function and use the one from context
+  // Remove local removeItem function and use removeFromCart from context
 
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = 0;
@@ -103,9 +93,9 @@ function Cart() {
                 </Link>
                 <Link to="/cart" className="relative text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">shopping_bag</span>
-                  {cartItems.length > 0 && (
+                  {getCartCount() > 0 && (
                     <span className="absolute -top-1 -right-1 bg-primary text-white text-[10px] size-4 flex items-center justify-center rounded-full">
-                      {cartItems.length}
+                      {getCartCount()}
                     </span>
                   )}
                 </Link>
@@ -165,9 +155,9 @@ function Cart() {
                 </Link>
                 <Link to="/cart" className="relative text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">shopping_bag</span>
-                  {cartItems.length > 0 && (
+                  {getCartCount() > 0 && (
                     <span className="absolute -top-1 -right-1 bg-primary text-white text-[10px] size-4 flex items-center justify-center rounded-full">
-                      {cartItems.length}
+                      {getCartCount()}
                     </span>
                   )}
                 </Link>
@@ -221,7 +211,7 @@ function Cart() {
                             <p className="text-xs text-[#896168] dark:text-white/40 mt-1">{item.description}</p>
                           </div>
                           <button 
-                            onClick={() => removeItem(item.id)}
+                            onClick={() => removeFromCart(item.id)}
                             className="text-[#896168] hover:text-[#c5a059] transition-colors cursor-pointer"
                           >
                             <span className="material-symbols-outlined text-xl">close</span>
@@ -320,9 +310,12 @@ function Cart() {
                     </div>
                   </div>
                   
-                  <button className="w-full bg-[#5d0e1b] hover:bg-black dark:bg-[#c5a059] dark:hover:bg-[#b8944d] text-white py-4 rounded font-bold uppercase tracking-[0.2em] text-sm transition-all shadow-lg mb-4 cursor-pointer">
+                  <Link 
+                    to="/checkout"
+                    className="w-full bg-[#5d0e1b] hover:bg-black dark:bg-[#c5a059] dark:hover:bg-[#b8944d] text-white py-4 rounded font-bold uppercase tracking-[0.2em] text-sm transition-all shadow-lg mb-4 cursor-pointer block text-center"
+                  >
                     Proceed to Checkout
-                  </button>
+                  </Link>
                   
                   <div className="flex items-center justify-center gap-2 text-[#896168] dark:text-white/40">
                     <span className="material-symbols-outlined text-sm">lock</span>
