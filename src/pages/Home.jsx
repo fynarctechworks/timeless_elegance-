@@ -275,7 +275,9 @@ function Home() {
           <header className="flex items-center justify-between whitespace-nowrap">
             {/* Brand - Left */}
             <div className="flex items-center flex-1">
-              <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto" />
+              <Link to="/">
+                <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto cursor-pointer" />
+              </Link>
             </div>
 
             {/* Navigation - Center */}
@@ -393,12 +395,16 @@ function Home() {
                 Experience the luxury of hand-woven heritage maroon silk and intricate gold embroidery.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-6 sm:pt-8 lg:pt-10 justify-center px-4 sm:px-0">
-                <button className="bg-primary hover:bg-primary/90 text-white px-8 sm:px-10 lg:px-12 py-4 sm:py-5 rounded-none font-bold text-xs sm:text-sm uppercase tracking-[0.2em] transition-all shadow-2xl cursor-pointer">
-                  Shop Now
-                </button>
-                <button className="border border-white/50 text-white hover:bg-white hover:text-black px-8 sm:px-10 lg:px-12 py-4 sm:py-5 rounded-none font-bold text-xs sm:text-sm uppercase tracking-[0.2em] transition-all backdrop-blur-sm cursor-pointer">
-                  View Collection
-                </button>
+                <Link to="/cart">
+                  <button className="bg-primary hover:bg-primary/90 text-white px-8 sm:px-10 lg:px-12 py-4 sm:py-5 rounded-none font-bold text-xs sm:text-sm uppercase tracking-[0.2em] transition-all shadow-2xl cursor-pointer">
+                    Go to Cart
+                  </button>
+                </Link>
+                <Link to="/all-products">
+                  <button className="border border-white/50 text-white hover:bg-white hover:text-black px-8 sm:px-10 lg:px-12 py-4 sm:py-5 rounded-none font-bold text-xs sm:text-sm uppercase tracking-[0.2em] transition-all backdrop-blur-sm cursor-pointer">
+                    View Collection
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -637,7 +643,9 @@ function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16 lg:mb-20">
               <div className="col-span-1 sm:col-span-2">
                 <div className="mb-3 sm:mb-4">
-                  <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto" />
+                  <Link to="/">
+                    <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto cursor-pointer" />
+                  </Link>
                 </div>
                 <p className="text-white/60 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
                   Redefining luxury ethnic wear with artisanal craftsmanship and contemporary designs. Every piece is a tribute to India's timeless heritage.

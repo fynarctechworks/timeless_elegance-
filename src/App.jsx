@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import ProductDetails from './pages/ProductDetails'
+import AllProducts from './pages/AllProducts'
 import Sarees from './pages/Sarees'
 import BanarasiSilks from './pages/BanarasiSilks'
 import BridalLehengas from './pages/BridalLehengas'
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/all-products" element={<AllProducts />} />
         <Route path="/sarees" element={<Sarees />} />
         <Route path="/lehengas" element={<Lehengas />} />
         <Route path="/indo-western" element={<IndoWestern />} />

@@ -413,7 +413,9 @@ function BridalEdit() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16 lg:mb-20">
             <div className="col-span-1 sm:col-span-2">
               <div className="mb-4">
-                <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto" />
+                <Link to="/">
+                  <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto cursor-pointer" />
+                </Link>
               </div>
               <p className="text-white/60 text-sm sm:text-base max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose">
                 Redefining luxury ethnic wear with artisanal craftsmanship and contemporary designs. Every piece is a tribute to India's timeless heritage.

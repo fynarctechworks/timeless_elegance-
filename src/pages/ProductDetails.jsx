@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+ import { useLocation, Link } from 'react-router-dom';
 import ScrollToTop from '../components/ScrollToTop';
 import logo from '../assets/Logo.png';
 
@@ -26,6 +26,7 @@ function ProductDetails() {
   
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Use the main product image for all thumbnails (can be customized later)
   const productImages = [
@@ -60,48 +61,106 @@ function ProductDetails() {
 
   return (
     <>
-      {/* Header - Same as Home */}
+      {/* Header */}
       <div className="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e1d5] dark:border-[#3d2a2d]">
-        <div className="w-full mx-auto px-6 lg:px-20 py-4">
+        <div className="w-full mx-auto px-4 sm:px-6 lg:px-20 py-3 sm:py-4">
           <header className="flex items-center justify-between whitespace-nowrap">
             {/* Brand - Left */}
             <div className="flex items-center flex-1">
-              <img src={logo} alt="Timeless Elegance" className="h-16 w-auto" />
+              <Link to="/">
+                <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto cursor-pointer" />
+              </Link>
             </div>
 
             {/* Navigation - Center */}
             <nav className="hidden lg:flex items-center justify-center gap-10 flex-1">
-              <a className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors" href="#">
+              <Link to="/sarees" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Sarees
-              </a>
-              <a className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors" href="#">
+              </Link>
+              <Link to="/lehengas" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Lehengas
-              </a>
-              <a className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors" href="#">
+              </Link>
+              <Link to="/indo-western" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Indo-Western
-              </a>
-              <a className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors" href="#">
+              </Link>
+              <Link to="/bridal-edit" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Bridal Edit
-              </a>
+              </Link>
             </nav>
 
             {/* Icons - Right */}
-            <div className="flex items-center justify-end gap-6 flex-1">
-              <div className="flex gap-4">
+            <div className="flex items-center justify-end gap-4 sm:gap-6 flex-1">
+              <div className="hidden sm:flex gap-3 sm:gap-4">
                 <Link to="/wishlist" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
-                  <span className="material-symbols-outlined">favorite</span>
+                  <span className="material-symbols-outlined text-xl sm:text-2xl">favorite</span>
                 </Link>
-                <Link to="/cart" className="text-[#181112] dark:text-white hover:text-primary transition-colors relative cursor-pointer">
-                  <span className="material-symbols-outlined">shopping_bag</span>
-                  <span className="absolute -top-1 -right-1 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">2</span>
+                <Link to="/cart" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                  <span className="material-symbols-outlined text-xl sm:text-2xl">shopping_bag</span>
                 </Link>
                 <Link to="/profile" className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
-                  <span className="material-symbols-outlined">person</span>
+                  <span className="material-symbols-outlined text-xl sm:text-2xl">person</span>
                 </Link>
               </div>
+              {/* Hamburger Menu Button */}
+              <button 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer"
+                aria-label="Toggle menu"
+              >
+                <span className="material-symbols-outlined text-2xl">
+                  {mobileMenuOpen ? 'close' : 'menu'}
+                </span>
+              </button>
             </div>
           </header>
         </div>
+        
+        {/* Mobile Navigation Dropdown */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-background-light/98 dark:bg-background-dark/98 backdrop-blur-md border-b border-[#e5e1d5] dark:border-[#3d2a2d] shadow-lg">
+            <nav className="flex flex-col px-4 sm:px-6 py-4 space-y-4">
+              <Link 
+                to="/sarees" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+              >
+                Sarees
+              </Link>
+              <Link 
+                to="/lehengas" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+              >
+                Lehengas
+              </Link>
+              <Link 
+                to="/indo-western" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+              >
+                Indo-Western
+              </Link>
+              <Link 
+                to="/bridal-edit" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+              >
+                Bridal Edit
+              </Link>
+              <div className="flex gap-6 pt-4 border-t border-[#e5e1d5] dark:border-[#3d2a2d]">
+                <Link to="/wishlist" onClick={() => setMobileMenuOpen(false)} className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                  <span className="material-symbols-outlined text-2xl">favorite</span>
+                </Link>
+                <Link to="/cart" onClick={() => setMobileMenuOpen(false)} className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                  <span className="material-symbols-outlined text-2xl">shopping_bag</span>
+                </Link>
+                <Link to="/profile" onClick={() => setMobileMenuOpen(false)} className="text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer">
+                  <span className="material-symbols-outlined text-2xl">person</span>
+                </Link>
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
 
       <main className="w-full">
@@ -256,32 +315,36 @@ function ProductDetails() {
           </section>
         </div>
 
-        {/* Footer - Same as Home */}
-        <footer className="bg-[#181112] text-white pt-24 pb-12 mt-32">
-          <div className="w-full mx-auto px-6 lg:px-20">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
-              <div className="col-span-1 md:col-span-2">
-                <div className="mb-4">
-                  <img src={logo} alt="Timeless Elegance" className="h-16 w-auto" />
+        <ScrollToTop />
+
+        {/* Footer */}
+        <footer className="bg-[#181112] text-white pt-12 sm:pt-16 lg:pt-24 pb-8 sm:pb-12">
+          <div className="w-full mx-auto px-4 sm:px-6 lg:px-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16 lg:mb-20">
+              <div className="col-span-1 sm:col-span-2">
+                <div className="mb-3 sm:mb-4">
+                  <Link to="/">
+                    <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto cursor-pointer" />
+                  </Link>
                 </div>
-                <p className="text-white/60 max-w-sm mb-8 leading-loose">
+                <p className="text-white/60 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
                   Redefining luxury ethnic wear with artisanal craftsmanship and contemporary designs. Every piece is a tribute to India's timeless heritage.
                 </p>
-                <div className="flex gap-4">
-                  <a className="size-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
-                    <span className="material-symbols-outlined text-xl">share</span>
+                <div className="flex gap-3 sm:gap-4">
+                  <a className="size-9 sm:size-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
+                    <span className="material-symbols-outlined text-lg sm:text-xl">share</span>
                   </a>
-                  <a className="size-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
-                    <span className="material-symbols-outlined text-xl">camera</span>
+                  <a className="size-9 sm:size-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
+                    <span className="material-symbols-outlined text-lg sm:text-xl">camera</span>
                   </a>
-                  <a className="size-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
-                    <span className="material-symbols-outlined text-xl">public</span>
+                  <a className="size-9 sm:size-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
+                    <span className="material-symbols-outlined text-lg sm:text-xl">public</span>
                   </a>
                 </div>
               </div>
               <div>
-                <h6 className="font-bold text-sm uppercase tracking-widest mb-8 text-gold">Shop</h6>
-                <ul className="space-y-4 text-white/60 text-sm">
+                <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-gold">Shop</h6>
+                <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
                   <li><a className="hover:text-white transition-colors" href="#">Silk Sarees</a></li>
                   <li><a className="hover:text-white transition-colors" href="#">Chiffon Collection</a></li>
                   <li><a className="hover:text-white transition-colors" href="#">Wedding Store</a></li>
@@ -290,8 +353,8 @@ function ProductDetails() {
                 </ul>
               </div>
               <div>
-                <h6 className="font-bold text-sm uppercase tracking-widest mb-8 text-gold">Experience</h6>
-                <ul className="space-y-4 text-white/60 text-sm">
+                <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-gold">Experience</h6>
+                <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
                   <li><a className="hover:text-white transition-colors" href="#">Our Story</a></li>
                   <li><a className="hover:text-white transition-colors" href="#">Bespoke Couture</a></li>
                   <li><a className="hover:text-white transition-colors" href="#">Store Locator</a></li>
@@ -300,11 +363,11 @@ function ProductDetails() {
                 </ul>
               </div>
             </div>
-            <div className="border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-              <p className="text-white/40 text-xs tracking-widest uppercase">
+            <div className="border-t border-white/10 pt-8 sm:pt-10 lg:pt-12 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
+              <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-widest uppercase text-center md:text-left">
                 © 2024 Timeless Elegance Boutique. All Rights Reserved.
               </p>
-              <div className="flex gap-8 text-white/40 text-[10px] font-bold uppercase tracking-[0.2em]">
+              <div className="flex gap-6 sm:gap-8 text-white/40 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
                 <a className="hover:text-white transition-colors" href="#">Terms</a>
                 <a className="hover:text-white transition-colors" href="#">Privacy</a>
                 <a className="hover:text-white transition-colors" href="#">Shipping</a>
@@ -313,8 +376,6 @@ function ProductDetails() {
           </div>
         </footer>
       </main>
-      
-      <ScrollToTop />
     </>
   );
 }

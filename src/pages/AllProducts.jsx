@@ -9,15 +9,9 @@ import softPinkFloral from '../assets/Soft Pink Floral Organza.jpg';
 import ivoryWhiteLehenga from '../assets/Ivory White Zardozi Lehenga.jpg';
 import emeraldBanarasi from '../assets/Emerald Banarasi Silk.jpg';
 import crimsonRedSaree from '../assets/Crimson Red Silk Saree.jpg';
-import champagneGoldAnarkali from '../assets/Champagne Gold Anarkali.jpg';
-import mintGreenGeorgette from '../assets/Mint Green Georgette.jpg';
-import mauveVelvetBridal from '../assets/Mauve Velvet Bridal Set.jpg';
-import peacockBlueKanjivaram from '../assets/Peacock Blue Kanjivaram.jpg';
-import coralPinkBandhani from '../assets/Coral Pink Bandhani.jpg';
-import burgundyChanderi from '../assets/Burgundy Chanderi Silk.jpg';
 import goldLehenga from '../assets/Gold Embroidered Lehenga.jpg';
 
-function Sarees() {
+function AllProducts() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
@@ -28,58 +22,58 @@ function Sarees() {
   const products = [
     {
       id: 1,
-      name: "Handwoven Banarasi Silk",
-      category: "Deep Maroon with Antique Zari",
-      price: "₹84,500",
-      image: crimsonRedSaree,
-      secondaryImage: royalBlueKanjeevaram,
-      badge: "Premium"
+      name: "Heritage Banarasi Silk",
+      category: "Pure Kanjeevaram Handwoven",
+      price: "?85,000",
+      image: royalBlueKanjeevaram,
+      secondaryImage: crimsonRedSaree,
+      badge: "New Arrival"
     },
     {
       id: 2,
-      name: "Floral Embroidered Organza",
-      category: "Emerald Green Sheer Elegance",
-      price: "₹42,900",
-      image: emeraldBanarasi,
-      secondaryImage: softPinkFloral,
-      badge: "New"
+      name: "Zardosi Embroidered Lehenga",
+      category: "Bridal Collection 2024",
+      price: "?1,45,000",
+      image: goldLehenga,
+      secondaryImage: ivoryWhiteLehenga,
+      badge: "Premium"
     },
     {
       id: 3,
-      name: "Sequin Tissue Chiffon",
-      category: "Royal Ivory with Gold Accents",
-      price: "₹56,000",
-      image: champagneGoldAnarkali,
-      secondaryImage: ivoryWhiteLehenga,
+      name: "Floral Organza Saree",
+      category: "Contemporary Festive Wear",
+      price: "?32,500",
+      image: softPinkFloral,
+      secondaryImage: emeraldBanarasi,
       badge: null
     },
     {
       id: 4,
-      name: "Heritage Kanjeevaram",
-      category: "Burnt Orange with Pure Gold Border",
-      price: "₹1,25,000",
-      image: peacockBlueKanjivaram,
-      secondaryImage: mintGreenGeorgette,
-      badge: "Bestseller",
-      badgePosition: "right"
+      name: "Classic Temple Saree",
+      category: "Gold Zari Border",
+      price: "?55,200",
+      image: ivoryWhiteLehenga,
+      secondaryImage: softPinkFloral,
+      badge: null
     },
     {
       id: 5,
-      name: "Hand-Embellished Georgette",
-      category: "Fuchsia Pink with Crystal Work",
-      price: "₹38,000",
-      image: coralPinkBandhani,
-      secondaryImage: mauveVelvetBridal,
+      name: "Sequin Anarkali",
+      category: "Cocktail Night Special",
+      price: "?48,000",
+      image: emeraldBanarasi,
+      secondaryImage: goldLehenga,
       badge: null
     },
     {
       id: 6,
-      name: "Contemporary Lace Net",
-      category: "Midnight Blue Evening Saree",
-      price: "₹29,999",
-      image: burgundyChanderi,
-      secondaryImage: goldLehenga,
-      badge: null
+      name: "Wedding Saree",
+      category: "Pure Kanchipuram Silk",
+      price: "?62,000",
+      originalPrice: "?72,950",
+      image: crimsonRedSaree,
+      secondaryImage: royalBlueKanjeevaram,
+      badge: "Bestseller"
     }
   ];
 
@@ -92,13 +86,13 @@ function Sarees() {
             {/* Brand - Left */}
             <div className="flex items-center flex-1">
               <Link to="/">
-                <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto" />
+                <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto cursor-pointer" />
               </Link>
             </div>
 
             {/* Navigation - Center */}
             <nav className="hidden lg:flex items-center justify-center gap-10 flex-1">
-              <Link to="/sarees" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest text-primary border-b-2 border-primary pb-1 transition-colors">
+              <Link to="/sarees" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
                 Sarees
               </Link>
               <Link to="/lehengas" className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors">
@@ -131,12 +125,14 @@ function Sarees() {
                 className="lg:hidden text-[#181112] dark:text-white hover:text-primary transition-colors cursor-pointer"
                 aria-label="Toggle menu"
               >
-                <span className="material-symbols-outlined text-2xl">{mobileMenuOpen ? 'close' : 'menu'}</span>
+                <span className="material-symbols-outlined text-2xl">
+                  {mobileMenuOpen ? 'close' : 'menu'}
+                </span>
               </button>
             </div>
           </header>
         </div>
-
+        
         {/* Mobile Navigation Dropdown */}
         {mobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-background-light/98 dark:bg-background-dark/98 backdrop-blur-md border-b border-[#e5e1d5] dark:border-[#3d2a2d] shadow-lg">
@@ -185,28 +181,21 @@ function Sarees() {
         )}
       </div>
 
-      <main className="w-full">
+      <main>
         {/* Hero Section */}
-        <section className="relative h-[50vh] sm:h-[55vh] lg:h-[60vh] min-h-[350px] sm:min-h-[400px] lg:min-h-[450px] overflow-hidden">
-          <img 
-            alt="Editorial wide shot of model in an open marble courtyard wearing a luxury saree" 
-            className="w-full h-full object-cover" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE1xl4KBtlLsbLkFvju2jFhuUEsZCgS3Xd5POrUAV3CenlJG0-JHlAqjyKf8ELQ6X7F1UQfIQ4Ae7gHhcThYSIsXZi7DYsbUEIKFbF4UsX0oB4Gz2LcF3qe6HewCMw2VdZW4xfbAKbCVSGEP0So2iOHtKaeuezPrPmnNqw_Jq5vPZqLjTmZLxq9AvwwgJI6Q6j0rGA0G5Xdgt5ccNcmde3GNw8dCrjdwZ-F8elGae2DAVsM4wZrjeyii2KUtS-_iV7vEbTCt2suVz-"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#221013]/80 via-[#221013]/50 sm:via-[#c5a059]/20 to-transparent"></div>
-          <div className="absolute inset-0 flex items-center">
-            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-20 w-full">
-              <div className="max-w-2xl text-white space-y-3 sm:space-y-4">
-                <nav className="flex items-center gap-2 text-[#c5a059] text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4 sm:mb-6">
-                  <Link to="/" className="hover:text-white transition-colors">Home</Link>
-                  <span className="material-symbols-outlined text-[10px]">chevron_right</span>
-                  <span className="text-white/60">Sarees</span>
-                </nav>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight">Sarees Collection</h1>
-                <p className="text-white/80 text-sm sm:text-base md:text-lg lg:text-xl font-light italic max-w-xl">
-                  Discover a curated collection of artisanal sarees, celebrating the rich heritage of Indian craftsmanship with a modern aesthetic.
-                </p>
-              </div>
+        <section className="relative h-[50vh] lg:h-[65vh] overflow-hidden">
+          <div className="absolute inset-0 bg-[#2d1618] bg-gradient-to-br from-[#2d1618] to-[#1a0d0f]"></div>
+          <div className="relative h-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-20 flex items-center">
+            <div className="max-w-2xl lg:max-w-3xl text-white space-y-3 sm:space-y-4 lg:space-y-6">
+              <nav className="flex items-center gap-2 text-[#c5a059] text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4 sm:mb-6">
+                <Link to="/" className="hover:text-white transition-colors">Home</Link>
+                <span className="material-symbols-outlined text-[10px]">chevron_right</span>
+                <span className="text-white/60">All Products</span>
+              </nav>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight">The Complete Collection</h1>
+              <p className="text-white/80 text-sm sm:text-base md:text-lg lg:text-xl font-light italic max-w-xl">
+                Handcrafted elegance for every occasion. Explore our signature collection of heritage sarees, modern lehengas, and ethereal bridal wear.
+              </p>
             </div>
           </div>
         </section>
@@ -230,14 +219,14 @@ function Sarees() {
                 <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#2d1618' }}>Filter by Color</h3>
                 <div className="flex flex-col gap-3">
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
+                    <span className="size-4 bg-[#c5a059] border border-black/10 rounded-full"></span>
+                    <span className="group-hover:text-[#8B1538] transition-colors">Gold</span>
+                    <span className="ml-auto text-xs text-gray-400">(42)</span>
+                  </button>
+                  <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
                     <span className="size-4 bg-[#6e0d1d] border border-black/10 rounded-full"></span>
                     <span className="group-hover:text-[#8B1538] transition-colors">Deep Maroon</span>
                     <span className="ml-auto text-xs text-gray-400">(12)</span>
-                  </button>
-                  <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
-                    <span className="size-4 bg-[#002366] border border-black/10 rounded-full"></span>
-                    <span className="group-hover:text-[#8B1538] transition-colors">Royal Blue</span>
-                    <span className="ml-auto text-xs text-gray-400">(08)</span>
                   </button>
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
                     <span className="size-4 bg-[#036344] border border-black/10 rounded-full"></span>
@@ -245,14 +234,14 @@ function Sarees() {
                     <span className="ml-auto text-xs text-gray-400">(15)</span>
                   </button>
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
-                    <span className="size-4 bg-[#800020] border border-black/10 rounded-full"></span>
-                    <span className="group-hover:text-[#8B1538] transition-colors">Wine Red</span>
-                    <span className="ml-auto text-xs text-gray-400">(06)</span>
+                    <span className="size-4 bg-[#002366] border border-black/10 rounded-full"></span>
+                    <span className="group-hover:text-[#8B1538] transition-colors">Royal Blue</span>
+                    <span className="ml-auto text-xs text-gray-400">(08)</span>
                   </button>
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
-                    <span className="size-4 bg-[#FFD700] border border-black/10 rounded-full"></span>
-                    <span className="group-hover:text-[#8B1538] transition-colors">Gold</span>
-                    <span className="ml-auto text-xs text-gray-400">(10)</span>
+                    <span className="size-4 bg-[#FFB6C1] border border-black/10 rounded-full"></span>
+                    <span className="group-hover:text-[#8B1538] transition-colors">Pastel Pink</span>
+                    <span className="ml-auto text-xs text-gray-400">(18)</span>
                   </button>
                 </div>
               </div>
@@ -284,6 +273,29 @@ function Sarees() {
                 </div>
               </div>
 
+              {/* Occasion Filter */}
+              <div className="space-y-6">
+                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#2d1618' }}>Occasion</h3>
+                <div className="space-y-4">
+                  <label className="flex items-center gap-3 cursor-pointer group">
+                    <input className="rounded border-gray-300 size-4 cursor-pointer" type="checkbox" style={{ accentColor: '#c5a059' }} />
+                    <span className="text-sm group-hover:text-[#8B1538] transition-colors">Bridal</span>
+                  </label>
+                  <label className="flex items-center gap-3 cursor-pointer group">
+                    <input className="rounded border-gray-300 size-4 cursor-pointer" type="checkbox" style={{ accentColor: '#c5a059' }} />
+                    <span className="text-sm group-hover:text-[#8B1538] transition-colors">Sangeet</span>
+                  </label>
+                  <label className="flex items-center gap-3 cursor-pointer group">
+                    <input className="rounded border-gray-300 size-4 cursor-pointer" type="checkbox" style={{ accentColor: '#c5a059' }} />
+                    <span className="text-sm group-hover:text-[#8B1538] transition-colors">Festive</span>
+                  </label>
+                  <label className="flex items-center gap-3 cursor-pointer group">
+                    <input className="rounded border-gray-300 size-4 cursor-pointer" type="checkbox" style={{ accentColor: '#c5a059' }} />
+                    <span className="text-sm group-hover:text-[#8B1538] transition-colors">Casual</span>
+                  </label>
+                </div>
+              </div>
+
               {/* Price Range Filter */}
               <div className="space-y-6">
                 <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#2d1618' }}>Price Range</h3>
@@ -296,8 +308,8 @@ function Sarees() {
                     type="range"
                   />
                   <div className="flex justify-between text-xs font-bold text-gray-500">
-                    <span>₹5,000</span>
-                    <span>₹1,50,000+</span>
+                    <span>?5,000</span>
+                    <span>?1,50,000+</span>
                   </div>
                 </div>
               </div>
@@ -313,7 +325,7 @@ function Sarees() {
             <div className="flex-1">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10">
                 <p className="text-xs sm:text-sm text-gray-500">
-                  Showing <span className="font-bold" style={{ color: '#2d1618' }}>128</span> Sarees
+                  Showing <span className="font-bold" style={{ color: '#2d1618' }}>128</span> Products
                 </p>
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-gray-400">Sort By:</span>
@@ -341,7 +353,7 @@ function Sarees() {
                         src={product.secondaryImage}
                       />
                       {product.badge && (
-                        <div className={`absolute top-3 left-3 sm:top-4 sm:left-4 text-white text-[9px] sm:text-[10px] font-bold uppercase px-2 sm:px-3 py-1 tracking-widest ${product.badge === 'Premium' ? 'bg-[#8B1538]' : product.badge === 'New' ? 'bg-[#c5a059]' : 'bg-amber-600'}`}>
+                        <div className={`absolute top-3 left-3 sm:top-4 sm:left-4 text-white text-[9px] sm:text-[10px] font-bold uppercase px-2 sm:px-3 py-1 tracking-widest ${product.badge === 'Premium' ? 'bg-[#8B1538]' : product.badge === 'New Arrival' ? 'bg-[#c5a059]' : 'bg-amber-600'}`}>
                           {product.badge}
                         </div>
                       )}
@@ -353,7 +365,12 @@ function Sarees() {
                     <div className="p-4 sm:p-5 lg:p-6 text-center space-y-1.5 sm:space-y-2">
                       <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#c5a059] font-bold truncate">{product.category}</p>
                       <h4 className="font-serif text-base sm:text-lg font-bold truncate" style={{ color: '#2d1618' }}>{product.name}</h4>
-                      <p className="font-bold tracking-wider text-sm sm:text-base" style={{ color: '#8B1538' }}>{product.price}</p>
+                      <div className="flex items-center justify-center gap-2">
+                        <p className="font-bold tracking-wider text-sm sm:text-base" style={{ color: '#8B1538' }}>{product.price}</p>
+                        {product.originalPrice && (
+                          <p className="text-xs text-gray-400 line-through">{product.originalPrice}</p>
+                        )}
+                      </div>
                       <div className="pt-3 sm:pt-4 flex gap-2">
                         <button className="flex-1 text-white py-2.5 sm:py-3 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] hover:bg-[#c5a059] transition-colors cursor-pointer" style={{ backgroundColor: '#2d1618' }}>
                           Add to Bag
@@ -385,11 +402,11 @@ function Sarees() {
       <ScrollToTop />
 
       {/* Footer - Same as Home */}
-      <footer className="bg-[#181112] text-white pt-12 sm:pt-16 lg:pt-24 pb-8 sm:pb-10 lg:pb-12">
+      <footer className="bg-[#181112] text-white pt-12 sm:pt-16 lg:pt-24 pb-8 sm:pb-12">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16 lg:mb-20">
             <div className="col-span-1 sm:col-span-2">
-              <div className="mb-4">
+              <div className="mb-3 sm:mb-4">
                 <Link to="/">
                   <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto cursor-pointer" />
                 </Link>
@@ -397,20 +414,20 @@ function Sarees() {
               <p className="text-white/60 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
                 Redefining luxury ethnic wear with artisanal craftsmanship and contemporary designs. Every piece is a tribute to India's timeless heritage.
               </p>
-              <div className="flex gap-4">
-                <a className="size-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
-                  <span className="material-symbols-outlined text-xl">share</span>
+              <div className="flex gap-3 sm:gap-4">
+                <a className="size-9 sm:size-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
+                  <span className="material-symbols-outlined text-lg sm:text-xl">share</span>
                 </a>
-                <a className="size-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
-                  <span className="material-symbols-outlined text-xl">camera</span>
+                <a className="size-9 sm:size-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
+                  <span className="material-symbols-outlined text-lg sm:text-xl">camera</span>
                 </a>
-                <a className="size-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
-                  <span className="material-symbols-outlined text-xl">public</span>
+                <a className="size-9 sm:size-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
+                  <span className="material-symbols-outlined text-lg sm:text-xl">public</span>
                 </a>
               </div>
             </div>
             <div>
-              <h6 className="font-bold text-xs sm:text-sm uppercase tracking-widest mb-6 sm:mb-8 text-gold">Shop</h6>
+              <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-gold">Shop</h6>
               <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
                 <li><a className="hover:text-white transition-colors" href="#">Silk Sarees</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Chiffon Collection</a></li>
@@ -420,7 +437,7 @@ function Sarees() {
               </ul>
             </div>
             <div>
-              <h6 className="font-bold text-xs sm:text-sm uppercase tracking-widest mb-6 sm:mb-8 text-gold">Experience</h6>
+              <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-gold">Experience</h6>
               <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
                 <li><a className="hover:text-white transition-colors" href="#">Our Story</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Bespoke Couture</a></li>
@@ -430,11 +447,11 @@ function Sarees() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/10 pt-8 sm:pt-10 lg:pt-12 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
-            <p className="text-white/40 text-[10px] sm:text-xs tracking-widest uppercase text-center sm:text-left">
-              © 2024 Timeless Elegance Boutique. All Rights Reserved.
+          <div className="border-t border-white/10 pt-8 sm:pt-10 lg:pt-12 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
+            <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-widest uppercase text-center md:text-left">
+               2024 Timeless Elegance Boutique. All Rights Reserved.
             </p>
-            <div className="flex gap-4 sm:gap-6 lg:gap-8 text-white/40 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
+            <div className="flex gap-6 sm:gap-8 text-white/40 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
               <a className="hover:text-white transition-colors" href="#">Terms</a>
               <a className="hover:text-white transition-colors" href="#">Privacy</a>
               <a className="hover:text-white transition-colors" href="#">Shipping</a>
@@ -442,14 +459,8 @@ function Sarees() {
           </div>
         </div>
       </footer>
-
-      <style jsx>{`
-        .product-card:hover .secondary-image {
-          opacity: 1;
-        }
-      `}</style>
     </>
   );
 }
 
-export default Sarees;
+export default AllProducts;
