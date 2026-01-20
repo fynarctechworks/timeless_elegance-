@@ -144,7 +144,7 @@ function Sarees() {
               <Link 
                 to="/sarees" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#181112] dark:text-white text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors py-2 border-b border-[#e5e1d5] dark:border-[#3d2a2d]"
+                className="text-primary text-sm font-medium uppercase tracking-widest border-b-2 border-primary pb-2 inline-block"
               >
                 Sarees
               </Link>
