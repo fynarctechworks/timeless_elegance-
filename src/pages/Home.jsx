@@ -446,7 +446,7 @@ function Home() {
                       </div>
                     )}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-white/90 dark:bg-[#181112]/90 backdrop-blur-sm">
+                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 translate-y-0 sm:translate-y-full sm:group-hover:translate-y-0 transition-transform duration-300 bg-white/90 dark:bg-[#181112]/90 backdrop-blur-sm">
                       <Link to={`/product/${product.id}`} state={{ product: product }}>
                         <button className="w-full bg-primary text-white py-2.5 sm:py-3 text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-primary/90 transition-colors cursor-pointer">
                           Quick Buy
