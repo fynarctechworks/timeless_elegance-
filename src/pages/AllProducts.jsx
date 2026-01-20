@@ -190,7 +190,7 @@ function AllProducts() {
               <nav className="flex items-center gap-2 text-[#c5a059] text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4 sm:mb-6">
                 <Link to="/" className="hover:text-white transition-colors">Home</Link>
                 <span className="material-symbols-outlined text-[10px]">chevron_right</span>
-                <span className="text-white/60">All Products</span>
+                <span className="text-gray-200">All Products</span>
               </nav>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight">The Complete Collection</h1>
               <p className="text-white/80 text-sm sm:text-base md:text-lg lg:text-xl font-light italic max-w-xl">
@@ -221,27 +221,27 @@ function AllProducts() {
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
                     <span className="size-4 bg-[#c5a059] border border-black/10 rounded-full"></span>
                     <span className="group-hover:text-[#8B1538] transition-colors">Gold</span>
-                    <span className="ml-auto text-xs text-gray-400">(42)</span>
+                    <span className="ml-auto text-xs text-gray-200">(42)</span>
                   </button>
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
                     <span className="size-4 bg-[#6e0d1d] border border-black/10 rounded-full"></span>
                     <span className="group-hover:text-[#8B1538] transition-colors">Deep Maroon</span>
-                    <span className="ml-auto text-xs text-gray-400">(12)</span>
+                    <span className="ml-auto text-xs text-gray-200">(12)</span>
                   </button>
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
                     <span className="size-4 bg-[#036344] border border-black/10 rounded-full"></span>
                     <span className="group-hover:text-[#8B1538] transition-colors">Emerald Green</span>
-                    <span className="ml-auto text-xs text-gray-400">(15)</span>
+                    <span className="ml-auto text-xs text-gray-200">(15)</span>
                   </button>
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
                     <span className="size-4 bg-[#002366] border border-black/10 rounded-full"></span>
                     <span className="group-hover:text-[#8B1538] transition-colors">Royal Blue</span>
-                    <span className="ml-auto text-xs text-gray-400">(08)</span>
+                    <span className="ml-auto text-xs text-gray-200">(08)</span>
                   </button>
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
                     <span className="size-4 bg-[#FFB6C1] border border-black/10 rounded-full"></span>
                     <span className="group-hover:text-[#8B1538] transition-colors">Pastel Pink</span>
-                    <span className="ml-auto text-xs text-gray-400">(18)</span>
+                    <span className="ml-auto text-xs text-gray-200">(18)</span>
                   </button>
                 </div>
               </div>
@@ -307,7 +307,7 @@ function AllProducts() {
                     min="5000" 
                     type="range"
                   />
-                  <div className="flex justify-between text-xs font-bold text-gray-500">
+                  <div className="flex justify-between text-xs font-bold text-gray-100">
                     <span>?5,000</span>
                     <span>?1,50,000+</span>
                   </div>
@@ -324,11 +324,11 @@ function AllProducts() {
             {/* Products Grid */}
             <div className="flex-1">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10">
-                <p className="text-xs sm:text-sm text-gray-500">
+                <p className="text-xs sm:text-sm text-gray-100">
                   Showing <span className="font-bold" style={{ color: '#2d1618' }}>128</span> Products
                 </p>
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-gray-400">Sort By:</span>
+                  <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-gray-200">Sort By:</span>
                   <select className="border-none bg-transparent text-xs sm:text-sm font-bold focus:ring-0 cursor-pointer">
                     <option>Newest First</option>
                     <option>Price: Low to High</option>
@@ -368,7 +368,7 @@ function AllProducts() {
                       <div className="flex items-center justify-center gap-2">
                         <p className="font-bold tracking-wider text-sm sm:text-base" style={{ color: '#8B1538' }}>{product.price}</p>
                         {product.originalPrice && (
-                          <p className="text-xs text-gray-400 line-through">{product.originalPrice}</p>
+                          <p className="text-xs text-gray-300 line-through">{product.originalPrice}</p>
                         )}
                       </div>
                       <div className="pt-3 sm:pt-4 flex gap-2">
@@ -383,14 +383,14 @@ function AllProducts() {
 
               {/* Pagination */}
               <div className="mt-12 sm:mt-16 lg:mt-20 flex justify-center items-center gap-2 sm:gap-3 lg:gap-4">
-                <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-gray-400 hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">
+                <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-gray-200 hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-lg sm:text-xl">chevron_left</span>
                 </button>
                 <button className="size-9 sm:size-10 flex items-center justify-center text-white text-xs sm:text-sm font-bold cursor-pointer" style={{ backgroundColor: '#2d1618' }}>1</button>
                 <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-xs sm:text-sm font-bold hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">2</button>
                 <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-xs sm:text-sm font-bold hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">3</button>
-                <span className="text-gray-400 text-sm">...</span>
-                <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-gray-400 hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">
+                <span className="text-gray-200 text-sm">...</span>
+                <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-gray-200 hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-lg sm:text-xl">chevron_right</span>
                 </button>
               </div>
@@ -411,7 +411,7 @@ function AllProducts() {
                   <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto cursor-pointer" />
                 </Link>
               </div>
-              <p className="text-white/60 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
+              <p className="text-gray-200 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
                 Redefining luxury ethnic wear with artisanal craftsmanship and contemporary designs. Every piece is a tribute to India's timeless heritage.
               </p>
               <div className="flex gap-3 sm:gap-4">
@@ -428,7 +428,7 @@ function AllProducts() {
             </div>
             <div>
               <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-gold">Shop</h6>
-              <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
+              <ul className="space-y-3 sm:space-y-4 text-gray-200 text-xs sm:text-sm">
                 <li><a className="hover:text-white transition-colors" href="#">Silk Sarees</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Chiffon Collection</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Wedding Store</a></li>
@@ -438,7 +438,7 @@ function AllProducts() {
             </div>
             <div>
               <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-gold">Experience</h6>
-              <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
+              <ul className="space-y-3 sm:space-y-4 text-gray-200 text-xs sm:text-sm">
                 <li><a className="hover:text-white transition-colors" href="#">Our Story</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Bespoke Couture</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Store Locator</a></li>
@@ -448,10 +448,10 @@ function AllProducts() {
             </div>
           </div>
           <div className="border-t border-white/10 pt-8 sm:pt-10 lg:pt-12 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
-            <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-widest uppercase text-center md:text-left">
+            <p className="text-gray-300 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-widest uppercase text-center md:text-left">
                2024 Timeless Elegance Boutique. All Rights Reserved.
             </p>
-            <div className="flex gap-6 sm:gap-8 text-white/40 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
+            <div className="flex gap-6 sm:gap-8 text-gray-300 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
               <a className="hover:text-white transition-colors" href="#">Terms</a>
               <a className="hover:text-white transition-colors" href="#">Privacy</a>
               <a className="hover:text-white transition-colors" href="#">Shipping</a>

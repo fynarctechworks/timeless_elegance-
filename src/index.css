@@ -12,6 +12,41 @@
   --color-gold: #c5a059;
 }
 
+/* Toast Animation */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out;
+}
+
+/* Placeholder text styling */
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af !important;
+  opacity: 1;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #9ca3af !important;
+  opacity: 1;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #9ca3af !important;
+  opacity: 1;
+}
+
 /* Mobile-First Base Styles */
 body {
   margin: 0;
@@ -61,13 +96,34 @@ html {
   color-scheme: dark !important;
 }
 
-/* Override any light theme colors */
+/* Override any light theme colors and improve contrast */
 .bg-background-light {
   background-color: #221013 !important;
 }
 
 .text-\[\#181112\] {
   color: #ffffff !important;
+}
+
+/* High contrast text overrides */
+.text-gray-300 {
+  color: #e5e7eb !important;
+}
+
+.text-gray-400 {
+  color: #d1d5db !important;
+}
+
+.text-gray-500 {
+  color: #e5e7eb !important;
+}
+
+.text-white\/40 {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.text-white\/60 {
+  color: rgba(255, 255, 255, 0.92) !important;
 }
 
 /* Utility Classes */

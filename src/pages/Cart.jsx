@@ -91,7 +91,7 @@ function Cart() {
                 <Link to="/wishlist" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">favorite</span>
                 </Link>
-                <Link to="/cart" className="relative text-primary transition-colors cursor-pointer">
+                <Link to="/cart" className="relative text-[#c5a059] transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl sm:text-2xl">shopping_bag</span>
                   {getCartCount() > 0 && (
                     <span className="absolute -top-1 -right-1 bg-primary text-white text-[10px] size-4 flex items-center justify-center rounded-full">
@@ -153,7 +153,7 @@ function Cart() {
                 <Link to="/wishlist" className="text-white hover:text-primary transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">favorite</span>
                 </Link>
-                <Link to="/cart" className="relative text-primary transition-colors cursor-pointer">
+                <Link to="/cart" className="relative text-[#c5a059] transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-2xl">shopping_bag</span>
                   {getCartCount() > 0 && (
                     <span className="absolute -top-1 -right-1 bg-primary text-white text-[10px] size-4 flex items-center justify-center rounded-full">
@@ -175,12 +175,12 @@ function Cart() {
           {/* Page Header */}
           <div className="mb-8 sm:mb-10 text-center">
             <h1 className="text-2xl sm:text-3xl font-light tracking-[0.2em] uppercase mb-2 text-white">My Shopping Bag</h1>
-            <p className="text-[10px] sm:text-xs text-white/40 uppercase tracking-widest">Luxury Ethnic Couture Curated For You</p>
+            <p className="text-[10px] sm:text-xs text-gray-300 uppercase tracking-widest">Luxury Ethnic Couture Curated For You</p>
           </div>
 
           {cartItems.length === 0 ? (
             <div className="text-center py-16">
-              <span className="material-symbols-outlined text-6xl text-[#896168]/20 mb-4">shopping_bag</span>
+              <span className="material-symbols-outlined text-6xl text-[#c5a059]/30 mb-4">shopping_bag</span>
               <h2 className="text-xl font-bold mb-4 text-white">Your cart is empty</h2>
               <Link 
                 to="/" 
@@ -208,7 +208,7 @@ function Cart() {
                         <div className="flex justify-between items-start gap-2 mb-3">
                           <div>
                             <h3 className="text-sm sm:text-base font-bold uppercase tracking-tight text-white">{item.name}</h3>
-                            <p className="text-xs text-white/40 mt-1">{item.description}</p>
+                            <p className="text-xs text-gray-300 mt-1">{item.description}</p>
                           </div>
                           <button 
                             onClick={() => removeFromCart(item.id)}
@@ -270,15 +270,15 @@ function Cart() {
                   </h2>
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between text-sm">
-                      <span className="text-white/60">Subtotal ({cartItems.length} items)</span>
+                      <span className="text-gray-200">Subtotal ({cartItems.length} items)</span>
                       <span className="font-bold text-white">₹{subtotal.toLocaleString('en-IN')}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-white/60">Estimated Shipping</span>
+                      <span className="text-gray-200">Estimated Shipping</span>
                       <span className="text-green-600 font-bold uppercase text-[10px] tracking-widest">Free</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-white/60">Tax (GST)</span>
+                      <span className="text-gray-200">Tax (GST)</span>
                       <span className="font-bold text-white">₹{tax.toLocaleString('en-IN')}</span>
                     </div>
                   </div>
@@ -317,7 +317,7 @@ function Cart() {
                     Proceed to Checkout
                   </Link>
                   
-                  <div className="flex items-center justify-center gap-2 text-white/40">
+                  <div className="flex items-center justify-center gap-2 text-gray-300">
                     <span className="material-symbols-outlined text-sm">lock</span>
                     <span className="text-[10px] font-bold uppercase tracking-widest">Secure Checkout Powered By Aura</span>
                   </div>
@@ -343,7 +343,7 @@ function Cart() {
                   </div>
                   <div className="p-4">
                     <h3 className="text-[11px] sm:text-xs font-bold uppercase tracking-tight text-white mb-1">{product.name}</h3>
-                    <p className="text-[10px] sm:text-xs text-white/40 mb-2">{product.description}</p>
+                    <p className="text-[10px] sm:text-xs text-gray-300 mb-2">{product.description}</p>
                     <p className="font-bold text-[#c5a059] text-sm">₹{product.price.toLocaleString('en-IN')}</p>
                   </div>
                 </div>
@@ -363,7 +363,7 @@ function Cart() {
               <div className="mb-3 sm:mb-4">
                 <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto" />
               </div>
-              <p className="text-white/60 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
+              <p className="text-gray-200 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
                 Redefining luxury ethnic wear with artisanal craftsmanship and contemporary designs. Every piece is a tribute to India's timeless heritage.
               </p>
               <div className="flex gap-3 sm:gap-4">
@@ -380,7 +380,7 @@ function Cart() {
             </div>
             <div>
               <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-gold">Shop</h6>
-              <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
+              <ul className="space-y-3 sm:space-y-4 text-gray-200 text-xs sm:text-sm">
                 <li><a className="hover:text-white transition-colors" href="#">Silk Sarees</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Chiffon Collection</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Wedding Store</a></li>
@@ -390,7 +390,7 @@ function Cart() {
             </div>
             <div>
               <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-gold">Experience</h6>
-              <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
+              <ul className="space-y-3 sm:space-y-4 text-gray-200 text-xs sm:text-sm">
                 <li><a className="hover:text-white transition-colors" href="#">Our Story</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Bespoke Couture</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Store Locator</a></li>
@@ -400,10 +400,10 @@ function Cart() {
             </div>
           </div>
           <div className="border-t border-white/10 pt-8 sm:pt-10 lg:pt-12 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
-            <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-widest uppercase text-center md:text-left">
+            <p className="text-gray-300 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-widest uppercase text-center md:text-left">
               © 2024 Timeless Elegance Boutique. All Rights Reserved.
             </p>
-            <div className="flex gap-6 sm:gap-8 text-white/40 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
+            <div className="flex gap-6 sm:gap-8 text-gray-300 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
               <a className="hover:text-white transition-colors" href="#">Terms</a>
               <a className="hover:text-white transition-colors" href="#">Privacy</a>
               <a className="hover:text-white transition-colors" href="#">Shipping</a>

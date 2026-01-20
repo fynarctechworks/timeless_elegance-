@@ -1,5 +1,6 @@
 ﻿import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import ScrollToTop from '../components/ScrollToTop';
 import logo from '../assets/Logo.png';
 
@@ -18,6 +19,8 @@ import coralPinkBandhani from '../assets/Coral Pink Bandhani.jpg';
 import mintGreenGeorgette from '../assets/Mint Green Georgette.jpg';
 
 function BridalEdit() {
+  const { toggleWishlist, isInWishlist, addToCart } = useCart();
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
@@ -187,7 +190,7 @@ function BridalEdit() {
           <img 
             alt="Bridal Edit Collection" 
             className="w-full h-full object-cover" 
-            src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1920&q=80"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsor9LzuvD86hszCK_iZw2c2t5v2H2f4cQ3kXV-aJEMO3hsEKHwTp0exs3IG30HCCf9e8gzkL0_B61SotmOI5NUxoZn1cUDyATIdOXHj20uxDFwfdDDagekDF7jyYHVTZ5y1ERnNRefsU6s24BXzGShe82GhXTMrTeCnRd29UTXXvBdB14qUvHXcYV6SckJ1jLkqY7AytzlFCEhSUoU4IC1GP8u-sB4ayAptHRBGRvyenalbTb5ngjKRBWWTx_wOiPlKmtYGgH_yZN"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#221013]/80 via-[#221013]/50 sm:via-[#c5a059]/20 to-transparent"></div>
           <div className="absolute inset-0 flex items-center">
@@ -196,7 +199,7 @@ function BridalEdit() {
                 <nav className="flex items-center gap-2 text-[#c5a059] text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4 sm:mb-6">
                   <Link to="/" className="hover:text-white transition-colors">Home</Link>
                   <span className="material-symbols-outlined text-[10px]">chevron_right</span>
-                  <span className="text-white/60">Bridal Edit</span>
+                  <span className="text-gray-200">Bridal Edit</span>
                 </nav>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight">The Bridal Edit</h1>
                 <p className="text-white/80 text-sm sm:text-base md:text-lg lg:text-xl font-light italic max-w-xl">
@@ -223,7 +226,7 @@ function BridalEdit() {
             <aside className={`w-full lg:w-64 flex-shrink-0 space-y-8 lg:space-y-10 ${mobileFiltersOpen ? 'block' : 'hidden lg:block'}`}>
               {/* Color Filter */}
               <div className="space-y-6">
-                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#2d1618' }}>Filter by Color</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#c5a059' }}>Filter by Color</h3>
                 <div className="flex flex-col gap-3">
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
                     <span className="size-4 bg-[#FFFFFF] border border-black/10 rounded-full"></span>
@@ -255,7 +258,7 @@ function BridalEdit() {
 
               {/* Occasion Filter */}
               <div className="space-y-6">
-                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#2d1618' }}>Occasion</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#c5a059' }}>Occasion</h3>
                 <div className="space-y-4">
                   <label className="flex items-center gap-3 cursor-pointer group">
                     <input className="rounded border-gray-300 size-4 cursor-pointer" type="checkbox" style={{ accentColor: '#c5a059' }} />
@@ -282,7 +285,7 @@ function BridalEdit() {
 
               {/* Work Type Filter */}
               <div className="space-y-6">
-                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#2d1618' }}>Embellishment</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#c5a059' }}>Embellishment</h3>
                 <div className="space-y-4">
                   <label className="flex items-center gap-3 cursor-pointer group">
                     <input className="rounded border-gray-300 size-4 cursor-pointer" type="checkbox" style={{ accentColor: '#c5a059' }} />
@@ -309,7 +312,7 @@ function BridalEdit() {
 
               {/* Price Range Filter */}
               <div className="space-y-6">
-                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#2d1618' }}>Price Range</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#c5a059' }}>Price Range</h3>
                 <div className="space-y-4">
                   <input 
                     className="w-full h-1 rounded-lg appearance-none cursor-pointer" 
@@ -326,7 +329,7 @@ function BridalEdit() {
               </div>
 
               <div className="pt-6">
-                <button className="w-full border border-[#2d1618] py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#2d1618] hover:text-white transition-all cursor-pointer">
+                <button className="w-full border border-[#c5a059] py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#c5a059] hover:text-[#221013] transition-all cursor-pointer">
                   Clear All Filters
                 </button>
               </div>
@@ -336,15 +339,15 @@ function BridalEdit() {
             <div className="flex-1">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
                 <p className="text-sm text-gray-500">
-                  Showing <span className="font-bold" style={{ color: '#2d1618' }}>42</span> Bridal Ensembles
+                  Showing <span className="font-bold" style={{ color: '#c5a059' }}>42</span> Bridal Ensembles
                 </p>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs uppercase font-bold tracking-widest text-gray-400">Sort By:</span>
-                  <select className="border-none bg-transparent text-sm font-bold focus:ring-0 cursor-pointer">
-                    <option>Newest First</option>
-                    <option>Price: Low to High</option>
-                    <option>Price: High to Low</option>
-                    <option>Best Selling</option>
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <span className="text-xs uppercase font-bold tracking-widest" style={{ color: '#c5a059' }}>Sort By:</span>
+                  <select className="border border-[#c5a059]/30 rounded px-3 py-2 bg-[#2d161a] text-white text-sm font-medium focus:ring-2 focus:ring-[#c5a059] focus:outline-none cursor-pointer appearance-none" style={{ color: '#ffffff' }}>
+                    <option value="newest">Newest First</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="bestselling">Best Selling</option>
                   </select>
                 </div>
               </div>
@@ -352,7 +355,7 @@ function BridalEdit() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                 {products.map((product) => (
                   <div key={product.id} className="group silk-texture border border-[#e5e1d5] bg-white">
-                    <div className="relative aspect-[3/4] overflow-hidden">
+                    <div className="relative aspect-[3/4] overflow-hidden cursor-pointer" onClick={() => navigate('/product-details', { state: { product } })}>
                       <img 
                         alt={product.name}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
@@ -368,8 +371,13 @@ function BridalEdit() {
                           {product.badge}
                         </div>
                       )}
-                      <button className="absolute top-3 right-3 sm:top-4 sm:right-4 size-8 sm:size-10 bg-white/80 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" style={{ color: '#2d1618' }}>
-                        <span className="material-symbols-outlined text-lg sm:text-xl">favorite</span>
+                      <button 
+                        onClick={(e) => { e.stopPropagation(); toggleWishlist(product); }}
+                        className="absolute top-3 right-3 sm:top-4 sm:right-4 size-8 sm:size-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer z-10"
+                      >
+                        <span className="material-symbols-outlined text-lg sm:text-xl text-primary" style={{ fontVariationSettings: isInWishlist(product.id) ? "'FILL' 1" : "'FILL' 0" }}>
+                          favorite
+                        </span>
                       </button>
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
                     </div>
@@ -378,8 +386,8 @@ function BridalEdit() {
                       <h4 className="font-serif text-base sm:text-lg font-bold truncate" style={{ color: '#2d1618' }}>{product.name}</h4>
                       <p className="text-sm sm:text-base font-bold tracking-wider" style={{ color: '#8B1538' }}>{product.price}</p>
                       <div className="pt-4 flex gap-2">
-                        <button className="flex-1 text-white py-3 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#c5a059] transition-colors cursor-pointer" style={{ backgroundColor: '#2d1618' }}>
-                          Book Consultation
+                        <button onClick={(e) => { e.stopPropagation(); addToCart({ ...product, quantity: 1 }); }} className="flex-1 text-white py-3 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#c5a059] transition-colors cursor-pointer" style={{ backgroundColor: '#2d1618' }}>
+                          Add to Bag
                         </button>
                       </div>
                     </div>
@@ -392,7 +400,7 @@ function BridalEdit() {
                 <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-gray-400 hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-xl">chevron_left</span>
                 </button>
-                <button className="size-9 sm:size-10 flex items-center justify-center text-white text-sm font-bold cursor-pointer" style={{ backgroundColor: '#2d1618' }}>1</button>
+                <button className="size-9 sm:size-10 flex items-center justify-center border text-sm font-bold cursor-pointer" style={{ backgroundColor: '#c5a059', borderColor: '#c5a059', color: '#221013' }}>1</button>
                 <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-sm font-bold hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">2</button>
                 <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-sm font-bold hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">3</button>
                 <span className="text-gray-400 text-sm">...</span>

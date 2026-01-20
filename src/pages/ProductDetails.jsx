@@ -8,7 +8,11 @@ function ProductDetails() {
   const location = useLocation();
   const navigate = useNavigate();
   const product = location.state?.product;
-  const { addToCart, getCartCount } = useCart();
+  const { addToCart, getCartCount, addToWishlist, isInWishlist } = useCart();
+  
+  // Debug logging
+  console.log('ProductDetails rendering');
+  console.log('Product data:', product);
   
   // Scroll to top when component loads
   useEffect(() => {
@@ -19,26 +23,30 @@ function ProductDetails() {
   const defaultProduct = {
     name: 'Crimson Red & 24K Gold Kanjeevaram',
     price: '₹45,000',
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA_ro90QHxZrVaRAeKGYJOYHQiRtbyJRmIo-kiw5p1a-6S86W0earJF4WaXp_P2k6bTw9_fQY_-znN_70Xs8sX4oBj2KYdldE6qSrgeh5NFO41V038Wbu4fT9_DJOorQmzT7xV4WEfiF4lHiwjKzliPyRAwof_LnU3Hf4VzlVEo6MMyfcutJNYqCWsPoQgJKVorYOJIKXxHLJFp2x5hKCLAhEo4PGhalNS8EI9R1Efcg9fRtAwhXPmumXjYAxUaUOIFJkb6CX10ZXLc"
+    category: 'Heritage Collection',
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA_ro90QHxZrVaRAeKGYJOYHQiRtbyJRmIo-kiw5p1a-6S86W0earJF4WaXp_P2k6bTw9_fQY_-znN_70Xs8sX4oBj2KYdldE6qSrgeh5NFO41V038Wbu4fT9_DJOorQmzT7xV4WEfiF4lHiwjKzliPyRAwof_LnU3Hf4VzlVEo6MMyfcutJNYqCWsPoQgJKVorYOJIKXxHLJFp2x5hKCLAhEo4PGhalNS8EI9R1Efcg9fRtAwhXPmumXjYAxUaUOIFJkb6CX10ZXLc",
+    secondaryImage: "https://lh3.googleusercontent.com/aida-public/AB6AXuA_ro90QHxZrVaRAeKGYJOYHQiRtbyJRmIo-kiw5p1a-6S86W0earJF4WaXp_P2k6bTw9_fQY_-znN_70Xs8sX4oBj2KYdldE6qSrgeh5NFO41V038Wbu4fT9_DJOorQmzT7xV4WEfiF4lHiwjKzliPyRAwof_LnU3Hf4VzlVEo6MMyfcutJNYqCWsPoQgJKVorYOJIKXxHLJFp2x5hKCLAhEo4PGhalNS8EI9R1Efcg9fRtAwhXPmumXjYAxUaUOIFJkb6CX10ZXLc"
   };
   
   const currentProduct = product || defaultProduct;
   const productName = currentProduct.name;
   const productPrice = currentProduct.price;
+  const productCategory = currentProduct.category || 'Heritage Collection';
   const mainImage = currentProduct.image;
+  const secondaryImage = currentProduct.secondaryImage || mainImage;
   
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showAddedToast, setShowAddedToast] = useState(false);
 
   const handleAddToCart = () => {
     // Parse the price to a number (remove ₹ and commas)
     const priceNumber = parseFloat(productPrice.replace('₹', '').replace(/,/g, ''));
     
     const cartItem = {
-      id: `${productName}-${Date.now()}`, // Generate unique ID
+      id: currentProduct.id || `${productName}-${Date.now()}`, // Use product ID if available
       name: productName,
+      category: productCategory,
       description: 'Authentic Hand-woven Mulberry Silk',
       price: priceNumber,
       quantity: quantity,
@@ -46,16 +54,27 @@ function ProductDetails() {
     };
     
     addToCart(cartItem);
-    
-    // Show toast notification
-    setShowAddedToast(true);
-    setTimeout(() => setShowAddedToast(false), 3000);
   };
 
-  // Use the main product image for all thumbnails (can be customized later)
+  const handleAddToWishlist = () => {
+    const priceNumber = parseFloat(productPrice.replace('₹', '').replace(/,/g, ''));
+    
+    const wishlistItem = {
+      id: currentProduct.id || `${productName}-${Date.now()}`,
+      name: productName,
+      category: productCategory,
+      description: 'Authentic Hand-woven Mulberry Silk',
+      price: priceNumber,
+      image: mainImage
+    };
+    
+    addToWishlist(wishlistItem);
+  };
+
+  // Use the product images for thumbnails
   const productImages = [
     mainImage,
-    mainImage,
+    secondaryImage,
     mainImage,
     mainImage
   ];
@@ -192,25 +211,26 @@ function ProductDetails() {
         )}
       </div>
 
-      <main className="w-full">
+      <main className="w-full min-h-screen bg-[#221013]">
         <div className="max-w-7xl mx-auto px-6 lg:px-20 py-8">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 mb-8 text-sm">
-            <Link to="/" className="text-gray-600 hover:text-primary transition-colors">Home</Link>
-            <span className="material-symbols-outlined text-xs text-gray-400">chevron_right</span>
-            <Link to="/#new-arrivals" className="text-gray-600 hover:text-primary transition-colors cursor-pointer">New Arrival</Link>
-            <span className="material-symbols-outlined text-xs text-gray-400">chevron_right</span>
-            <span className="font-medium" style={{color: '#2d1618'}}>{productName}</span>
+            <Link to="/" className="text-white hover:text-[#c5a059] transition-colors">Home</Link>
+            <span className="material-symbols-outlined text-xs text-white">chevron_right</span>
+            <Link to="/#new-arrivals" className="text-white hover:text-[#c5a059] transition-colors cursor-pointer">New Arrival</Link>
+            <span className="material-symbols-outlined text-xs text-white">chevron_right</span>
+            <span className="font-medium text-white">{productName}</span>
           </nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Left: Image Gallery */}
             <div className="lg:col-span-7 flex flex-col md:flex-row-reverse gap-4">
               <div className="flex-1 relative group overflow-hidden rounded-xl bg-gray-50">
-                <div 
-                  className="aspect-[3/4] w-full bg-cover bg-center transition-transform duration-700 hover:scale-110 cursor-zoom-in" 
-                  style={{backgroundImage: `url(${productImages[selectedImage]})`}}
-                ></div>
+                <img 
+                  src={productImages[selectedImage]}
+                  alt={productName}
+                  className="aspect-[3/4] w-full object-cover transition-transform duration-700 hover:scale-110 cursor-zoom-in" 
+                />
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-primary text-[10px] font-bold px-2 py-1 uppercase tracking-widest rounded">
                   Handloom
                 </div>
@@ -219,16 +239,17 @@ function ProductDetails() {
               {/* Thumbnails */}
               <div className="flex md:flex-col gap-3 w-full md:w-20 overflow-x-auto md:overflow-y-auto">
                 {productImages.map((img, index) => (
-                  <div 
+                  <img
                     key={index}
+                    src={img}
+                    alt={`${productName} ${index + 1}`}
                     onClick={() => setSelectedImage(index)}
-                    className={`w-20 h-24 flex-shrink-0 rounded-lg bg-cover bg-center cursor-pointer transition-all ${
+                    className={`w-20 h-24 flex-shrink-0 rounded-lg object-cover cursor-pointer transition-all ${
                       selectedImage === index 
                         ? 'border-2 border-primary' 
                         : 'border border-transparent hover:border-gray-300'
                     }`}
-                    style={{backgroundImage: `url(${img})`}}
-                  ></div>
+                  />
                 ))}
               </div>
             </div>
@@ -237,15 +258,15 @@ function ProductDetails() {
             <div className="lg:col-span-5">
               <div className="sticky top-24">
                 <div className="mb-2">
-                  <span className="text-primary font-bold text-xs uppercase tracking-[0.2em]">Heritage Collection</span>
+                  <span className="text-primary font-bold text-xs uppercase tracking-[0.2em]">{productCategory}</span>
                 </div>
-                <h1 className="text-4xl font-black mb-2 tracking-tight" style={{color: '#2d1618'}}>
+                <h1 className="text-4xl font-black mb-2 tracking-tight text-white">
                   {productName}
                 </h1>
-                <p className="text-lg text-gray-500 mb-6 font-normal">Authentic Hand-woven Mulberry Silk</p>
+                <p className="text-lg text-gray-100 mb-6 font-normal">Authentic Hand-woven Mulberry Silk</p>
                 
                 <div className="flex items-baseline gap-4 mb-8">
-                  <span className="text-3xl font-bold" style={{color: '#2d1618'}}>{productPrice}</span>
+                  <span className="text-3xl font-bold text-white">{productPrice}</span>
                 </div>
 
                 {/* Actions */}
@@ -258,11 +279,20 @@ function ProductDetails() {
                       <span className="material-symbols-outlined">shopping_bag</span>
                       ADD TO BAG
                     </button>
-                    <Link to="/wishlist" className="px-5 border border-gray-700 rounded-lg hover:bg-gray-800 transition-all cursor-pointer flex items-center justify-center">
-                      <span className="material-symbols-outlined">favorite</span>
-                    </Link>
+                    <button 
+                      onClick={handleAddToWishlist}
+                      className={`px-5 border rounded-lg transition-all cursor-pointer flex items-center justify-center ${
+                        isInWishlist(currentProduct.id || `${productName}-${Date.now()}`) 
+                          ? 'bg-primary border-primary text-white' 
+                          : 'border-gray-700 hover:bg-gray-800'
+                      }`}
+                    >
+                      <span className="material-symbols-outlined">
+                        {isInWishlist(currentProduct.id || `${productName}-${Date.now()}`) ? 'favorite' : 'favorite_border'}
+                      </span>
+                    </button>
                   </div>
-                  <p className="text-xs text-center text-gray-500">Free priority shipping on this item</p>
+                  <p className="text-xs text-center text-gray-200">Free priority shipping on this item</p>
                 </div>
 
                 {/* Product Details Accordion */}
@@ -272,7 +302,7 @@ function ProductDetails() {
                       Fabric Details
                       <span className="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
                     </summary>
-                    <div className="pt-4 text-sm leading-relaxed space-y-2" style={{color: '#2d1618'}}>
+                    <div className="pt-4 text-sm leading-relaxed space-y-2 text-white">
                       <p><span className="font-semibold">Material:</span> 100% Pure Mulberry Silk</p>
                       <p><span className="font-semibold">Zari:</span> Pure 24K Gold and Silver Zari work</p>
                       <p><span className="font-semibold">Weave:</span> Hand-woven Korvai Technique from Kanchipuram</p>
@@ -284,7 +314,7 @@ function ProductDetails() {
                       Blouse Info
                       <span className="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
                     </summary>
-                    <div className="pt-4 text-sm text-gray-400 leading-relaxed">
+                    <div className="pt-4 text-sm text-gray-200 leading-relaxed">
                       Includes an unstitched running blouse piece (0.8m) in contrasting deep crimson with a heavy gold border matching the saree's pallu.
                     </div>
                   </details>
@@ -294,7 +324,7 @@ function ProductDetails() {
                       Wash Care
                       <span className="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
                     </summary>
-                    <div className="pt-4 text-sm text-gray-400 leading-relaxed">
+                    <div className="pt-4 text-sm text-gray-200 leading-relaxed">
                       Professional Dry Clean Only. Store in a soft muslin cloth or saree bag. Avoid direct sunlight to preserve the gold zari brilliance.
                     </div>
                   </details>
@@ -303,16 +333,16 @@ function ProductDetails() {
                 {/* Trust Markers */}
                 <div className="grid grid-cols-3 gap-4 mt-8">
                   <div className="flex flex-col items-center text-center gap-2">
-                    <span className="material-symbols-outlined text-gray-400">verified</span>
-                    <span className="text-[10px] uppercase font-bold text-gray-500">Silk Mark Certified</span>
+                    <span className="material-symbols-outlined text-gray-200">verified</span>
+                    <span className="text-[10px] uppercase font-bold text-gray-200">Silk Mark Certified</span>
                   </div>
                   <div className="flex flex-col items-center text-center gap-2">
-                    <span className="material-symbols-outlined text-gray-400">pan_tool</span>
-                    <span className="text-[10px] uppercase font-bold text-gray-500">Hand-woven</span>
+                    <span className="material-symbols-outlined text-gray-200">pan_tool</span>
+                    <span className="text-[10px] uppercase font-bold text-gray-200">Hand-woven</span>
                   </div>
                   <div className="flex flex-col items-center text-center gap-2">
-                    <span className="material-symbols-outlined text-gray-400">local_shipping</span>
-                    <span className="text-[10px] uppercase font-bold text-gray-500">Worldwide Shipping</span>
+                    <span className="material-symbols-outlined text-gray-200">local_shipping</span>
+                    <span className="text-[10px] uppercase font-bold text-gray-200">Worldwide Shipping</span>
                   </div>
                 </div>
               </div>
@@ -339,8 +369,8 @@ function ProductDetails() {
                       <span className="material-symbols-outlined text-gray-900">add</span>
                     </button>
                   </div>
-                  <p className="font-bold text-sm mb-1" style={{color: '#8B1538'}}>{product.name}</p>
-                  <p className="text-gray-500 text-sm">{product.price}</p>
+                  <p className="font-bold text-sm mb-1 text-white">{product.name}</p>
+                  <p className="text-[#c5a059] text-sm font-semibold">{product.price}</p>
                 </div>
               ))}
             </div>
@@ -359,7 +389,7 @@ function ProductDetails() {
                     <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto cursor-pointer" />
                   </Link>
                 </div>
-                <p className="text-white/60 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
+                <p className="text-gray-200 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
                   Redefining luxury ethnic wear with artisanal craftsmanship and contemporary designs. Every piece is a tribute to India's timeless heritage.
                 </p>
                 <div className="flex gap-3 sm:gap-4">
@@ -376,7 +406,7 @@ function ProductDetails() {
               </div>
               <div>
                 <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-gold">Shop</h6>
-                <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
+                <ul className="space-y-3 sm:space-y-4 text-gray-200 text-xs sm:text-sm">
                   <li><a className="hover:text-white transition-colors" href="#">Silk Sarees</a></li>
                   <li><a className="hover:text-white transition-colors" href="#">Chiffon Collection</a></li>
                   <li><a className="hover:text-white transition-colors" href="#">Wedding Store</a></li>
@@ -386,7 +416,7 @@ function ProductDetails() {
               </div>
               <div>
                 <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-gold">Experience</h6>
-                <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
+                <ul className="space-y-3 sm:space-y-4 text-gray-200 text-xs sm:text-sm">
                   <li><a className="hover:text-white transition-colors" href="#">Our Story</a></li>
                   <li><a className="hover:text-white transition-colors" href="#">Bespoke Couture</a></li>
                   <li><a className="hover:text-white transition-colors" href="#">Store Locator</a></li>
@@ -396,10 +426,10 @@ function ProductDetails() {
               </div>
             </div>
             <div className="border-t border-white/10 pt-8 sm:pt-10 lg:pt-12 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
-              <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-widest uppercase text-center md:text-left">
+              <p className="text-gray-300 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-widest uppercase text-center md:text-left">
                 © 2024 Timeless Elegance Boutique. All Rights Reserved.
               </p>
-              <div className="flex gap-6 sm:gap-8 text-white/40 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
+              <div className="flex gap-6 sm:gap-8 text-gray-300 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
                 <a className="hover:text-white transition-colors" href="#">Terms</a>
                 <a className="hover:text-white transition-colors" href="#">Privacy</a>
                 <a className="hover:text-white transition-colors" href="#">Shipping</a>
@@ -407,23 +437,6 @@ function ProductDetails() {
             </div>
           </div>
         </footer>
-
-        {/* Toast Notification */}
-        {showAddedToast && (
-          <div className="fixed bottom-6 right-6 z-50 bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl flex items-center gap-3 animate-slide-up">
-            <span className="material-symbols-outlined">check_circle</span>
-            <div>
-              <p className="font-bold">Added to cart!</p>
-              <p className="text-sm opacity-90">{quantity} item(s) added</p>
-            </div>
-            <Link 
-              to="/cart"
-              className="ml-4 underline hover:no-underline text-sm font-semibold"
-            >
-              View Cart
-            </Link>
-          </div>
-        )}
       </main>
     </>
   );

@@ -1,5 +1,6 @@
 ﻿import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import ScrollToTop from '../components/ScrollToTop';
 import logo from '../assets/Logo.png';
 
@@ -18,6 +19,8 @@ import burgundyChanderi from '../assets/Burgundy Chanderi Silk.jpg';
 import goldLehenga from '../assets/Gold Embroidered Lehenga.jpg';
 
 function Sarees() {
+  const { toggleWishlist, isInWishlist, addToCart } = useCart();
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
@@ -189,9 +192,9 @@ function Sarees() {
         {/* Hero Section */}
         <section className="relative h-[50vh] sm:h-[55vh] lg:h-[60vh] min-h-[350px] sm:min-h-[400px] lg:min-h-[450px] overflow-hidden">
           <img 
-            alt="Editorial wide shot of model in an open marble courtyard wearing a luxury saree" 
+            alt="Sarees Collection" 
             className="w-full h-full object-cover" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE1xl4KBtlLsbLkFvju2jFhuUEsZCgS3Xd5POrUAV3CenlJG0-JHlAqjyKf8ELQ6X7F1UQfIQ4Ae7gHhcThYSIsXZi7DYsbUEIKFbF4UsX0oB4Gz2LcF3qe6HewCMw2VdZW4xfbAKbCVSGEP0So2iOHtKaeuezPrPmnNqw_Jq5vPZqLjTmZLxq9AvwwgJI6Q6j0rGA0G5Xdgt5ccNcmde3GNw8dCrjdwZ-F8elGae2DAVsM4wZrjeyii2KUtS-_iV7vEbTCt2suVz-"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsor9LzuvD86hszCK_iZw2c2t5v2H2f4cQ3kXV-aJEMO3hsEKHwTp0exs3IG30HCCf9e8gzkL0_B61SotmOI5NUxoZn1cUDyATIdOXHj20uxDFwfdDDagekDF7jyYHVTZ5y1ERnNRefsU6s24BXzGShe82GhXTMrTeCnRd29UTXXvBdB14qUvHXcYV6SckJ1jLkqY7AytzlFCEhSUoU4IC1GP8u-sB4ayAptHRBGRvyenalbTb5ngjKRBWWTx_wOiPlKmtYGgH_yZN"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#221013]/80 via-[#221013]/50 sm:via-[#c5a059]/20 to-transparent"></div>
           <div className="absolute inset-0 flex items-center">
@@ -200,7 +203,7 @@ function Sarees() {
                 <nav className="flex items-center gap-2 text-[#c5a059] text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4 sm:mb-6">
                   <Link to="/" className="hover:text-white transition-colors">Home</Link>
                   <span className="material-symbols-outlined text-[10px]">chevron_right</span>
-                  <span className="text-white/60">Sarees</span>
+                  <span className="text-gray-200">Sarees</span>
                 </nav>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight">Sarees Collection</h1>
                 <p className="text-white/80 text-sm sm:text-base md:text-lg lg:text-xl font-light italic max-w-xl">
@@ -227,39 +230,39 @@ function Sarees() {
             <aside className={`w-full lg:w-64 flex-shrink-0 space-y-8 lg:space-y-10 ${mobileFiltersOpen ? 'block' : 'hidden lg:block'}`}>
               {/* Color Filter */}
               <div className="space-y-6">
-                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#2d1618' }}>Filter by Color</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#c5a059' }}>Filter by Color</h3>
                 <div className="flex flex-col gap-3">
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
                     <span className="size-4 bg-[#6e0d1d] border border-black/10 rounded-full"></span>
                     <span className="group-hover:text-[#8B1538] transition-colors">Deep Maroon</span>
-                    <span className="ml-auto text-xs text-gray-400">(12)</span>
+                    <span className="ml-auto text-xs text-gray-200">(12)</span>
                   </button>
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
                     <span className="size-4 bg-[#002366] border border-black/10 rounded-full"></span>
                     <span className="group-hover:text-[#8B1538] transition-colors">Royal Blue</span>
-                    <span className="ml-auto text-xs text-gray-400">(08)</span>
+                    <span className="ml-auto text-xs text-gray-200">(08)</span>
                   </button>
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
                     <span className="size-4 bg-[#036344] border border-black/10 rounded-full"></span>
                     <span className="group-hover:text-[#8B1538] transition-colors">Emerald Green</span>
-                    <span className="ml-auto text-xs text-gray-400">(15)</span>
+                    <span className="ml-auto text-xs text-gray-200">(15)</span>
                   </button>
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
                     <span className="size-4 bg-[#800020] border border-black/10 rounded-full"></span>
                     <span className="group-hover:text-[#8B1538] transition-colors">Wine Red</span>
-                    <span className="ml-auto text-xs text-gray-400">(06)</span>
+                    <span className="ml-auto text-xs text-gray-200">(06)</span>
                   </button>
                   <button className="group flex items-center gap-2 w-full text-sm cursor-pointer">
                     <span className="size-4 bg-[#FFD700] border border-black/10 rounded-full"></span>
                     <span className="group-hover:text-[#8B1538] transition-colors">Gold</span>
-                    <span className="ml-auto text-xs text-gray-400">(10)</span>
+                    <span className="ml-auto text-xs text-gray-200">(10)</span>
                   </button>
                 </div>
               </div>
 
               {/* Fabric Type Filter */}
               <div className="space-y-6">
-                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#2d1618' }}>Fabric Type</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#c5a059' }}>Fabric Type</h3>
                 <div className="space-y-4">
                   <label className="flex items-center gap-3 cursor-pointer group">
                     <input className="rounded border-gray-300 size-4 cursor-pointer" type="checkbox" style={{ accentColor: '#c5a059' }} />
@@ -286,7 +289,7 @@ function Sarees() {
 
               {/* Price Range Filter */}
               <div className="space-y-6">
-                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#2d1618' }}>Price Range</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest border-b border-[#c5a059]/30 pb-4" style={{ color: '#c5a059' }}>Price Range</h3>
                 <div className="space-y-4">
                   <input 
                     className="w-full h-1 rounded-lg appearance-none cursor-pointer" 
@@ -295,7 +298,7 @@ function Sarees() {
                     min="5000" 
                     type="range"
                   />
-                  <div className="flex justify-between text-xs font-bold text-gray-500">
+                  <div className="flex justify-between text-xs font-bold text-gray-100">
                     <span>₹5,000</span>
                     <span>₹1,50,000+</span>
                   </div>
@@ -303,7 +306,7 @@ function Sarees() {
               </div>
 
               <div className="pt-6">
-                <button className="w-full border border-[#2d1618] py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#2d1618] hover:text-white transition-all cursor-pointer">
+                <button className="w-full border border-[#c5a059] py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#c5a059] hover:text-[#221013] transition-all cursor-pointer">
                   Clear All Filters
                 </button>
               </div>
@@ -312,16 +315,16 @@ function Sarees() {
             {/* Products Grid */}
             <div className="flex-1">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 mb-6 sm:mb-8 lg:mb-10">
-                <p className="text-xs sm:text-sm text-gray-500">
-                  Showing <span className="font-bold" style={{ color: '#2d1618' }}>128</span> Sarees
+                <p className="text-xs sm:text-sm text-gray-100">
+                  Showing <span className="font-bold" style={{ color: '#c5a059' }}>128</span> Sarees
                 </p>
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest text-gray-400">Sort By:</span>
-                  <select className="border-none bg-transparent text-xs sm:text-sm font-bold focus:ring-0 cursor-pointer">
-                    <option>Newest First</option>
-                    <option>Price: Low to High</option>
-                    <option>Price: High to Low</option>
-                    <option>Best Selling</option>
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest" style={{ color: '#c5a059' }}>Sort By:</span>
+                  <select className="border border-[#c5a059]/30 rounded px-2 sm:px-3 py-2 bg-[#2d161a] text-white text-xs sm:text-sm font-medium focus:ring-2 focus:ring-[#c5a059] focus:outline-none cursor-pointer appearance-none" style={{ color: '#ffffff' }}>
+                    <option value="newest">Newest First</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="bestselling">Best Selling</option>
                   </select>
                 </div>
               </div>
@@ -329,7 +332,10 @@ function Sarees() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                 {products.map((product) => (
                   <div key={product.id} className="group silk-texture border border-[#e5e1d5] bg-white">
-                    <div className="relative aspect-[3/4] overflow-hidden">
+                    <div 
+                      onClick={() => navigate('/product-details', { state: { product } })}
+                      className="relative aspect-[3/4] overflow-hidden cursor-pointer"
+                    >
                       <img 
                         alt={product.name}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
@@ -345,8 +351,13 @@ function Sarees() {
                           {product.badge}
                         </div>
                       )}
-                      <button className="absolute top-3 right-3 sm:top-4 sm:right-4 size-8 sm:size-10 bg-white/80 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer" style={{ color: '#2d1618' }}>
-                        <span className="material-symbols-outlined text-lg sm:text-xl">favorite</span>
+                      <button 
+                        onClick={(e) => { e.stopPropagation(); toggleWishlist(product); }}
+                        className="absolute top-3 right-3 sm:top-4 sm:right-4 size-8 sm:size-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer z-10"
+                      >
+                        <span className="material-symbols-outlined text-lg sm:text-xl text-primary" style={{ fontVariationSettings: isInWishlist(product.id) ? "'FILL' 1" : "'FILL' 0" }}>
+                          favorite
+                        </span>
                       </button>
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors"></div>
                     </div>
@@ -355,7 +366,11 @@ function Sarees() {
                       <h4 className="font-serif text-base sm:text-lg font-bold truncate" style={{ color: '#2d1618' }}>{product.name}</h4>
                       <p className="font-bold tracking-wider text-sm sm:text-base" style={{ color: '#8B1538' }}>{product.price}</p>
                       <div className="pt-3 sm:pt-4 flex gap-2">
-                        <button className="flex-1 text-white py-2.5 sm:py-3 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] hover:bg-[#c5a059] transition-colors cursor-pointer" style={{ backgroundColor: '#2d1618' }}>
+                        <button 
+                          onClick={(e) => { e.stopPropagation(); addToCart({ ...product, quantity: 1 }); }}
+                          className="flex-1 text-white py-2.5 sm:py-3 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] hover:bg-[#c5a059] transition-colors cursor-pointer" 
+                          style={{ backgroundColor: '#2d1618' }}
+                        >
                           Add to Bag
                         </button>
                       </div>
@@ -366,14 +381,14 @@ function Sarees() {
 
               {/* Pagination */}
               <div className="mt-12 sm:mt-16 lg:mt-20 flex justify-center items-center gap-2 sm:gap-3 lg:gap-4">
-                <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-gray-400 hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">
+                <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-gray-200 hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-lg sm:text-xl">chevron_left</span>
                 </button>
-                <button className="size-9 sm:size-10 flex items-center justify-center text-white text-xs sm:text-sm font-bold cursor-pointer" style={{ backgroundColor: '#2d1618' }}>1</button>
+                <button className="size-9 sm:size-10 flex items-center justify-center border text-xs sm:text-sm font-bold cursor-pointer" style={{ backgroundColor: '#c5a059', borderColor: '#c5a059', color: '#221013' }}>1</button>
                 <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-xs sm:text-sm font-bold hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">2</button>
                 <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-xs sm:text-sm font-bold hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">3</button>
-                <span className="text-gray-400 text-sm">...</span>
-                <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-gray-400 hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">
+                <span className="text-gray-200 text-sm">...</span>
+                <button className="size-9 sm:size-10 flex items-center justify-center border border-gray-200 text-gray-200 hover:border-[#c5a059] hover:text-[#c5a059] transition-colors cursor-pointer">
                   <span className="material-symbols-outlined text-lg sm:text-xl">chevron_right</span>
                 </button>
               </div>
@@ -394,7 +409,7 @@ function Sarees() {
                   <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto cursor-pointer" />
                 </Link>
               </div>
-              <p className="text-white/60 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
+              <p className="text-gray-200 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
                 Redefining luxury ethnic wear with artisanal craftsmanship and contemporary designs. Every piece is a tribute to India's timeless heritage.
               </p>
               <div className="flex gap-4">
@@ -411,7 +426,7 @@ function Sarees() {
             </div>
             <div>
               <h6 className="font-bold text-xs sm:text-sm uppercase tracking-widest mb-6 sm:mb-8 text-gold">Shop</h6>
-              <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
+              <ul className="space-y-3 sm:space-y-4 text-gray-200 text-xs sm:text-sm">
                 <li><a className="hover:text-white transition-colors" href="#">Silk Sarees</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Chiffon Collection</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Wedding Store</a></li>

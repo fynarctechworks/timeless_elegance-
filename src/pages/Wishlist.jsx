@@ -1,5 +1,6 @@
 ﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import ScrollToTop from '../components/ScrollToTop';
 import logo from '../assets/Logo.png';
 
@@ -11,9 +12,9 @@ import emeraldBanarasi from '../assets/Emerald Banarasi Silk.jpg';
 import goldLehenga from '../assets/Gold Embroidered Lehenga.jpg';
 
 function Wishlist() {
+  const { wishlistItems, removeFromWishlist, addToCart } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState('all');
-  const [wishlistItems, setWishlistItems] = useState([]);
 
   const filters = [
     { id: 'all', label: 'All Items' },
@@ -22,19 +23,14 @@ function Wishlist() {
     { id: 'accessories', label: 'Accessories' }
   ];
 
-  const removeFromWishlist = (id) => {
-    setWishlistItems(items => items.filter(item => item.id !== id));
-  };
-
   const moveToCart = (item) => {
-    // Add logic to move to cart
-    console.log('Moving to cart:', item);
+    addToCart(item);
     removeFromWishlist(item.id);
   };
 
   const filteredItems = activeFilter === 'all' 
     ? wishlistItems 
-    : wishlistItems.filter(item => item.category === activeFilter);
+    : wishlistItems.filter(item => item.category?.toLowerCase() === activeFilter);
 
   return (
     <>
@@ -155,7 +151,7 @@ function Wishlist() {
           {/* Page Heading */}
           <div className="mb-8 sm:mb-10 text-center">
             <h1 className="text-2xl sm:text-3xl font-light tracking-[0.2em] uppercase mb-2 text-white">My Wishlist</h1>
-            <p className="text-[10px] sm:text-xs text-white/40 uppercase tracking-widest">Luxury Ethnic Couture Curated For You</p>
+            <p className="text-[10px] sm:text-xs text-gray-300 uppercase tracking-widest">Luxury Ethnic Couture Curated For You</p>
           </div>
 
           {/* Filter Chips */}
@@ -178,7 +174,7 @@ function Wishlist() {
           {/* Wishlist Grid */}
           {filteredItems.length === 0 ? (
             <div className="text-center py-16">
-              <span className="material-symbols-outlined text-6xl text-[#896168]/20 mb-4">favorite_border</span>
+              <span className="material-symbols-outlined text-6xl text-[#c5a059]/30 mb-4">favorite_border</span>
               <h2 className="text-xl font-bold mb-4 text-white">Your wishlist is empty</h2>
               <Link 
                 to="/" 
@@ -208,9 +204,9 @@ function Wishlist() {
                   <div className="flex flex-col gap-1 px-1">
                     <h3 className="text-sm sm:text-base font-medium text-white">{item.name}</h3>
                     <div className="flex justify-between items-center">
-                      <p className="text-[#c5a059] font-bold">₹{item.price.toLocaleString('en-IN')}</p>
+                      <p className="text-[#c5a059] font-bold">{item.price}</p>
                       <span className="text-[10px] uppercase tracking-widest text-gray-400">
-                        {item.stock}
+                        {item.stock || 'In Stock'}
                       </span>
                     </div>
                   </div>
@@ -240,7 +236,7 @@ function Wishlist() {
                   <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto cursor-pointer" />
                 </Link>
               </div>
-              <p className="text-white/60 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
+              <p className="text-gray-200 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
                 Redefining luxury ethnic wear with artisanal craftsmanship and contemporary designs. Every piece is a tribute to India's timeless heritage.
               </p>
               <div className="flex gap-3 sm:gap-4">
@@ -257,7 +253,7 @@ function Wishlist() {
             </div>
             <div>
               <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-[#c5a059]">Shop</h6>
-              <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
+              <ul className="space-y-3 sm:space-y-4 text-gray-200 text-xs sm:text-sm">
                 <li><a className="hover:text-white transition-colors" href="#">Silk Sarees</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Chiffon Collection</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Wedding Store</a></li>
@@ -267,7 +263,7 @@ function Wishlist() {
             </div>
             <div>
               <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-[#c5a059]">Experience</h6>
-              <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
+              <ul className="space-y-3 sm:space-y-4 text-gray-200 text-xs sm:text-sm">
                 <li><a className="hover:text-white transition-colors" href="#">Our Story</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Bespoke Couture</a></li>
                 <li><a className="hover:text-white transition-colors" href="#">Store Locator</a></li>
@@ -277,10 +273,10 @@ function Wishlist() {
             </div>
           </div>
           <div className="border-t border-white/10 pt-8 sm:pt-10 lg:pt-12 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
-            <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-widest uppercase text-center md:text-left">
+            <p className="text-gray-300 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-widest uppercase text-center md:text-left">
               © 2024 Timeless Elegance Boutique. All Rights Reserved.
             </p>
-            <div className="flex gap-6 sm:gap-8 text-white/40 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
+            <div className="flex gap-6 sm:gap-8 text-gray-300 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
               <a className="hover:text-white transition-colors" href="#">Terms</a>
               <a className="hover:text-white transition-colors" href="#">Privacy</a>
               <a className="hover:text-white transition-colors" href="#">Shipping</a>

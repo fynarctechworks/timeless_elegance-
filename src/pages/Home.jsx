@@ -22,7 +22,7 @@ import champagneGoldAnarkali from '../assets/Champagne Gold Anarkali.jpg';
 import burgundyChanderi from '../assets/Burgundy Chanderi Silk.jpg';
 
 function Home() {
-  const { getCartCount } = useCart();
+  const { getCartCount, toggleWishlist, isInWishlist } = useCart();
   
   // State for managing visible products in New Arrivals
   const [visibleProducts, setVisibleProducts] = useState(10);
@@ -464,6 +464,14 @@ function Home() {
                         New Arrival
                       </div>
                     )}
+                    <button
+                      onClick={() => toggleWishlist(product)}
+                      className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-white/90 hover:bg-white size-8 sm:size-10 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer z-10"
+                    >
+                      <span className="material-symbols-outlined text-lg sm:text-xl text-primary" style={{ fontVariationSettings: isInWishlist(product.id) ? "'FILL' 1" : "'FILL' 0" }}>
+                        favorite
+                      </span>
+                    </button>
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 translate-y-0 sm:translate-y-full sm:group-hover:translate-y-0 transition-transform duration-300 bg-[#181112]/90 backdrop-blur-sm">
                       <Link to={`/product/${product.id}`} state={{ product: product }}>
@@ -493,7 +501,7 @@ function Home() {
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-20 pt-12 sm:pt-16 lg:pt-24 pb-8 sm:pb-12">
           <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
             <h3 className="text-gold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-[10px] sm:text-xs font-bold">Curated Selections</h3>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold" style={{color: '#2d1618'}}>Signature Collections</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold" style={{color: '#c5a059'}}>Signature Collections</h2>
             <div className="w-12 sm:w-16 h-0.5 bg-primary/30"></div>
           </div>
         </div>
@@ -582,7 +590,7 @@ function Home() {
               </p>
             </div>
             <div className="mt-8 sm:mt-10 lg:mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto px-4 sm:px-0">
-              <button className="text-white px-8 sm:px-10 lg:px-12 py-3 sm:py-4 rounded-none font-bold text-xs sm:text-sm uppercase tracking-widest transition-all shadow-lg hover:-translate-y-1 cursor-pointer" style={{ backgroundColor: '#c5a059' }}>
+              <button className="px-8 sm:px-10 lg:px-12 py-3 sm:py-4 rounded-none font-bold text-xs sm:text-sm uppercase tracking-widest transition-all shadow-lg hover:-translate-y-1 cursor-pointer" style={{ backgroundColor: '#c5a059', color: '#221013' }}>
                 Our Heritage Story
               </button>
               <button className="border px-8 sm:px-10 lg:px-12 py-3 sm:py-4 rounded-none font-bold text-xs sm:text-sm uppercase tracking-widest transition-all cursor-pointer" style={{ borderColor: '#c5a059', color: '#c5a059', backgroundColor: 'transparent' }} onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(197, 160, 89, 0.1)'} onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}>
@@ -660,7 +668,7 @@ function Home() {
                     <img src={logo} alt="Timeless Elegance" className="h-12 sm:h-14 lg:h-16 w-auto cursor-pointer" />
                   </Link>
                 </div>
-                <p className="text-white/60 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
+                <p className="text-gray-200 max-w-sm mb-6 sm:mb-8 leading-relaxed sm:leading-loose text-sm sm:text-base">
                   Redefining luxury ethnic wear with artisanal craftsmanship and contemporary designs. Every piece is a tribute to India's timeless heritage.
                 </p>
                 <div className="flex gap-3 sm:gap-4">
@@ -677,7 +685,7 @@ function Home() {
               </div>
               <div>
                 <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-gold">Shop</h6>
-                <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
+                <ul className="space-y-3 sm:space-y-4 text-gray-200 text-xs sm:text-sm">
                   <li><a className="hover:text-white transition-colors" href="#">Silk Sarees</a></li>
                   <li><a className="hover:text-white transition-colors" href="#">Chiffon Collection</a></li>
                   <li><a className="hover:text-white transition-colors" href="#">Wedding Store</a></li>
@@ -687,7 +695,7 @@ function Home() {
               </div>
               <div>
                 <h6 className="font-bold text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-widest mb-6 sm:mb-8 text-gold">Experience</h6>
-                <ul className="space-y-3 sm:space-y-4 text-white/60 text-xs sm:text-sm">
+                <ul className="space-y-3 sm:space-y-4 text-gray-200 text-xs sm:text-sm">
                   <li><a className="hover:text-white transition-colors" href="#">Our Story</a></li>
                   <li><a className="hover:text-white transition-colors" href="#">Bespoke Couture</a></li>
                   <li><a className="hover:text-white transition-colors" href="#">Store Locator</a></li>
@@ -697,10 +705,10 @@ function Home() {
               </div>
             </div>
             <div className="border-t border-white/10 pt-8 sm:pt-10 lg:pt-12 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
-              <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-widest uppercase text-center md:text-left">
+              <p className="text-gray-300 text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-widest uppercase text-center md:text-left">
                 © 2024 Timeless Elegance Boutique. All Rights Reserved.
               </p>
-              <div className="flex gap-6 sm:gap-8 text-white/40 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
+              <div className="flex gap-6 sm:gap-8 text-gray-300 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
                 <a className="hover:text-white transition-colors" href="#">Terms</a>
                 <a className="hover:text-white transition-colors" href="#">Privacy</a>
                 <a className="hover:text-white transition-colors" href="#">Shipping</a>

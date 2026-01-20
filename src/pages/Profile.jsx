@@ -204,7 +204,7 @@ function Profile() {
                   className="text-base font-medium text-[#181112] bg-white border border-[#e5e1d5] rounded px-2 py-1 w-full"
                 />
               ) : (
-                <p className="text-base font-medium text-[#181112]">{profileData.name}</p>
+                <p className="text-base font-medium text-[#221013]">{profileData.name}</p>
               )}
             </div>
             <div className="bg-[#faf8f6] border border-[#e5e1d5] rounded-lg p-5 hover:shadow-md transition-shadow">
@@ -217,7 +217,7 @@ function Profile() {
                   className="text-base font-medium text-[#181112] bg-white border border-[#e5e1d5] rounded px-2 py-1 w-full"
                 />
               ) : (
-                <p className="text-base font-medium text-[#181112]">{profileData.email}</p>
+                <p className="text-base font-medium text-[#221013]">{profileData.email}</p>
               )}
             </div>
             <div className="bg-[#faf8f6] border border-[#e5e1d5] rounded-lg p-5 hover:shadow-md transition-shadow">
@@ -230,7 +230,7 @@ function Profile() {
                   className="text-base font-medium text-[#181112] bg-white border border-[#e5e1d5] rounded px-2 py-1 w-full"
                 />
               ) : (
-                <p className="text-base font-medium text-[#181112]">{profileData.phone}</p>
+                <p className="text-base font-medium text-[#221013]">{profileData.phone}</p>
               )}
             </div>
           </div>
@@ -301,7 +301,7 @@ function Profile() {
                       <span className="material-symbols-outlined text-primary text-lg">check_circle</span>
                     )}
                   </div>
-                  <p className="text-sm leading-relaxed font-medium text-[#181112] whitespace-pre-line">
+                  <p className="text-sm leading-relaxed font-medium text-[#221013] whitespace-pre-line">
                     {address.address}
                   </p>
                 </div>
