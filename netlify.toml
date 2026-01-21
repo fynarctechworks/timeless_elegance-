@@ -8,6 +8,10 @@
   # Directory with the production-ready files
   publish = "dist"
 
+# Node version
+[build.environment]
+  NODE_VERSION = "20"
+
 # Redirects for SPA routing - ensures React Router works correctly
 [[redirects]]
   from = "/*"
