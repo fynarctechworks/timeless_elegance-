@@ -10,7 +10,7 @@
 
 # Node version
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "22.12.0"
   NPM_FLAGS = "--legacy-peer-deps"
 
 # Redirects for SPA routing - ensures React Router works correctly
