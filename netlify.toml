@@ -3,7 +3,7 @@
   base = "."
   
   # Build command
-  command = "npm run build"
+  command = "npm install && npm run build"
   
   # Directory with the production-ready files
   publish = "dist"
@@ -11,6 +11,7 @@
 # Node version
 [build.environment]
   NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
 
 # Redirects for SPA routing - ensures React Router works correctly
 [[redirects]]
